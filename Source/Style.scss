@@ -1,0 +1,60 @@
+Main
+{
+	Gap: 40px;
+
+	@media ($WideScreen)
+	{
+		Padding: 50px;
+	}
+
+	@media ($NarrowScreen)
+	{
+		Padding: 20px;
+	}
+
+	.Grid
+	{
+		Display: Grid;
+		Grid-template-columns: Repeat(Auto-fill, Minmax(250px, 1fr));
+		Gap: 30px 25px;
+		Justify-items: Center;
+		Align-items: Center;
+	}
+
+
+
+	H1
+	{
+		@include Reset_H;
+		Font-weight: 500;
+		Font-family: Var(--Font-Title);
+		Color: Var(--Main);
+
+		@media ($WideScreen)
+		{
+			Font-size: 48px;
+		}
+
+		@media ($NarrowScreen)
+		{
+			Font-size: 36px;
+		}
+	}
+
+	H2
+	{
+		@include Reset_H;
+		Font-weight: 500;
+		Font-family: Var(--Font-Title);
+
+		@media ($WideScreen)
+		{
+			Font-size: 32px;
+		}
+
+		@media ($NarrowScreen)
+		{
+			Font-size: 26px;
+		}
+	}
+}

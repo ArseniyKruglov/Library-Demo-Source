@@ -1,0 +1,20 @@
+Header
+{
+	Padding: 18px 20px;
+	Border-bottom: 1px Solid Var(--Gray-20);
+	Gap: 10px;
+
+	& > Custom-icon
+	{
+		--Icon-Scale: 30px;
+		--Icon-Color: Var(--Main);
+	}
+
+	& > Div
+	{
+		Color: Var(--Gray-70);
+		Font-size: 22px;
+		Font-weight: 500;
+		Font-family: Var(--Font-Title);
+	}
+}

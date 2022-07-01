@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+
+<HTML Lang="EN">
+	<Head>
+		<Meta CharSet="UTF-8">
+
+		<Title>Demo</Title>
+		<Link Rel="Icon" Href="Icon.svg">
+
+		<Meta Name="Theme-Color" Content="#FFFFFF">
+		<Meta Name="Viewport" Content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<Link Rel="StyleSheet" Href="Style.css">
+	</Head>
+
+	<Body AutoLayout Direction="Vertical" Width="Fill" Height="Fill">
+		<Header AutoLayout Direction='Horizontal' AlignY='Center'>
+			<Custom-icon Icon="code"></Custom-icon>
+			<Div>Library</Div>
+		</Header>
+
+		<Main AutoLayout Direction='Vertical'>
+			<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+				<H1>Вот такая библиотека.</H1>
+				<Div>Эта страница — демонстрация её красоты и лёгкости. Вдохновлено Google и Microsoft.</Div>
+			</Div>
+			<A Class='Text Main Roomy Fill' Href='https://github.com/ArseniyKruglov/Library' Target='_blank'>Исходный код</A>
+
+			<HR>
+
+			<H2>Цвета</H2>
+			<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
+				<Div>Основной цвет задается как CSS-переменные: Hue, Saturation и Lightness (HSL). На их основе создается цветовая палитра сайта. Их можно менять на лету, попробуйте:</Div>
+
+				<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
+					<Input Type="Color" Value="#D92626" OnInput="Theme_SetColor_Main(this.value)" ID="Theme_Main">
+					<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
+				</Div>
+			</Div>
+			<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
+				<Div>Серый — не серый. Для красоты к нему подмешивается немного синего. Этот параметр тоже можно менять:</Div>
+
+				<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
+					<Input Type="Color" Value="#171A1C" OnInput="Theme_SetColor_Gray(this.value)" ID="Theme_Gray">
+					<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
+				</Div>
+			</Div>
+
+			<HR>
+
+			<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+				<H2>Шрифты</H2>
+				<Div>Все шрифты разделены на четыре категории: заголовочные, интерфейсные, текстовые и моноширинные. Такой подход позволяет безболезненно менять шрифты в любой момент. Попробуйте:</Div>
+			</Div>
+			<Div AutoLayout Direction='Vertical' Width="Fit" Style="Gap: 5px">
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Заголовочный шрифт:</Span>
+					<Select OnChange="Font_Set_Title(this.value)">
+						<Option>Google Sans</Option>
+						<Option>Playfair Display</Option>
+						<Option>Bellota</Option>
+					</Select>
+				</Div>
+
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Интерфейсный шрифт:</Span>
+					<Select OnChange="Font_Set_UI(this.value)">
+						<Option>Google Sans</Option>
+						<Option>Roboto</Option>
+						<Option>System-UI</Option>
+					</Select>
+				</Div>
+
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Текстовый шрифт:</Span>
+					<Select OnChange="Font_Set_Text(this.value)">
+						<Option>Lora</Option>
+						<Option>Roboto</Option>
+						<Option>System-UI</Option>
+					</Select>
+				</Div>
+
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Моноширинный шрифт:</Span>
+					<Select OnChange="Font_Set_Monospace(this.value)">
+						<Option>Roboto Mono</Option>
+						<Option>JetBrains Mono</Option>
+					</Select>
+				</Div>
+			</Div>
+
+			<HR>
+
+			<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+				<H2>Кнопки</H2>
+				<Div>На все случаи жизни. Для удобства на каждой кнопке написано названия классов.</Div>
+			</Div>
+			<Div Class="Grid">
+				<Button Class="Text">.Text</Button>
+				<Button Class="Text Main">.Text.Main</Button>
+				<Button Class="Text Gray">.Text.Gray</Button>
+
+				<!-- <Button Class="Text Hover">.Text.Hover</Button>
+				<Button Class="Text Main Hover">.Text.Main.Hover</Button>
+				<Button Class="Text Gray Hover">.Text.Gray.Hover</Button> -->
+
+				<Button Class="Text Hover" OnClick="Ripple(event)">.Text.Hover</Button>
+				<Button Class="Text Main Hover" OnClick="Ripple(event)">.Text.Main.Hover</Button>
+				<Button Class="Text Gray Hover" OnClick="Ripple(event)">.Text.Gray.Hover</Button>
+
+				<!-- <Button Class="Text Roomy">.Text.Roomy</Button>
+				<Button Class="Text Main Roomy">.Text.Main.Roomy</Button>
+				<Button Class="Text Gray Roomy">.Text.Gray.Roomy</Button> -->
+
+				<Button Class="Text Roomy" OnClick="Ripple(event)">.Text.Roomy</Button>
+				<Button Class="Text Main Roomy" OnClick="Ripple(event)">.Text.Main.Roomy</Button>
+				<Button Class="Text Gray Roomy" OnClick="Ripple(event)">.Text.Gray.Roomy</Button>
+
+				<!-- <Button Class="Text Outlined">.Text.Outlined</Button>
+				<Button Class="Text Main Outlined">.Text.Main.Outlined</Button>
+				<Button Class="Text Gray Outlined">.Text.Gray.Outlined</Button> -->
+
+				<Button Class="Text Outlined" OnClick="Ripple(event)">.Text.Outlined</Button>
+				<Button Class="Text Main Outlined" OnClick="Ripple(event)">.Text.Main.Outlined</Button>
+				<Button Class="Text Gray Outlined" OnClick="Ripple(event)">.Text.Gray.Outlined</Button>
+
+				<Button Class="Text Outlined Icon" OnClick="Ripple(event)">
+					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Span>.Text.Main.Outlined.Icon</Span>
+				</Button>
+				<Button Class="Text Main Outlined Icon" OnClick="Ripple(event)">
+					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Span>.Text.Main.Outlined.Icon</Span>
+				</Button>
+				<Button Class="Text Gray Outlined Icon" OnClick="Ripple(event)">
+					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Span>.Text.Main.Outlined.Icon</Span>
+				</Button>
+
+				<Button Class="Text Main Fill">.Text.Main.Fill</Button>
+				<Button Class="Text Gray Fill">.Text.Gray.Fill</Button>
+
+				<Button Class="Text Main Fill Icon">
+					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Span>.Text.Main.Fill.Icon</Span>
+				</Button>
+				<Button Class="Text Gray Fill Icon">
+					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Span>.Text.Main.Fill.Icon</Span>
+				</Button>
+
+				<Custom-round-button Icon="Delete Forever"></Custom-round-button>
+			</Div>
+
+			<HR>
+
+			<H2>Ввод</H2>
+
+			<Div>Полноценные кастомные элементы.</Div>
+			<Div Class="Grid">
+				<Custom-checkbox></Custom-checkbox>
+
+				<Custom-checkbox Label="Красота"></Custom-checkbox>
+			</Div>
+
+			<Div>Просто обёртка для уже существующих элементов ввода. Показывать их все не имеет особого смысла, и всё же.</Div>
+			<Div Class="Grid">
+				<Div Class="InputContainer Outlined">
+					<Input Type="Text" Placeholder='Привет, поле ввода...'>
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy">
+					<Input Type="Text" Placeholder='Привет, поле ввода...'>
+				</Div>
+
+				<Div Class="InputContainer Outlined">
+					<Input Type="Time" Value="15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy">
+					<Input Type="Time" Value="15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined">
+					<Input Type="Date" Value="2020-12-12">
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy">
+					<Input Type="Date" Value="2020-12-12">
+				</Div>
+
+				<Div Class="InputContainer Outlined">
+					<Input Type="Datetime-local" Value="2020-12-12 15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy">
+					<Input Type="Datetime-local" Value="2020-12-12 15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined">
+					<Input Type="Month" Value="2020-12">
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy">
+					<Input Type="Month" Value="2020-12">
+				</Div>
+			</Div>
+		</Main>
+
+		<Script Src='Script.js'></Script>
+	</Body>
+</HTML>
