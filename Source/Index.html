@@ -30,18 +30,31 @@
 
 			<H2>Цвета</H2>
 			<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
-				<Div>Основной цвет задается как CSS-переменные: Hue, Saturation и Lightness (HSL). На их основе создается цветовая палитра сайта. Их можно менять на лету, попробуйте:</Div>
-
+				<Div>Основной цвет задается как CSS-переменные: Hue, Saturation и Lightness. На их основе создается цветовая палитра сайта.</Div>
+				<Code Class="Library Block" ID="Theme_Code_Main">
+					:root <BR>
+					{ <BR>
+					    --Hue: 0; <BR>
+					    --Saturation: 70%; <BR>
+					    --Lightness: 50%; <BR>
+					}
+				</Code>
 				<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
-					<Input Type="Color" Value="#D92626" OnInput="Theme_SetColor_Main(this.value)" ID="Theme_Main">
+					<Input Type="Color" Value="#D92626" OnInput="Theme_Set_Main(this.value)" ID="Theme_Main">
 					<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
 				</Div>
 			</Div>
 			<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
-				<Div>Серый — не серый. Для красоты к нему подмешивается немного синего. Этот параметр тоже можно менять:</Div>
-
+				<Div>Серый — не серый. Для красоты к нему подмешивается немного другого цвета.</Div>
+				<Code Class="Library Block" ID="Theme_Code_Gray">
+					:root <BR>
+					{ <BR>
+					    --Gray-Hue: 210; <BR>
+					    --Gray-Saturation: 10%; <BR>
+					}
+				</Code>
 				<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
-					<Input Type="Color" Value="#171A1C" OnInput="Theme_SetColor_Gray(this.value)" ID="Theme_Gray">
+					<Input Type="Color" Value="#171A1C" OnInput="Theme_Set_Gray(this.value)" ID="Theme_Gray">
 					<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
 				</Div>
 			</Div>
@@ -50,39 +63,45 @@
 
 			<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
 				<H2>Шрифты</H2>
-				<Div>Все шрифты разделены на четыре категории: заголовочные, интерфейсные, текстовые и моноширинные. Такой подход позволяет безболезненно менять шрифты в любой момент. Попробуйте:</Div>
+				<Div>Все шрифты разделены на четыре категории: заголовочные, интерфейсные, текстовые и моноширинные. Такой подход позволяет безболезненно менять шрифты в любой момент. Также для удобства SCSS-переменные вынесены fallback-шрифты.</Div>
 			</Div>
+			<Code Class="Library Block">
+				--Font-Title: 'Google Sans', #{$Font-Fallback-Sans-serif}; <BR>
+				--Font-Text: 'Lora', #{$Font-Fallback-Serif}; <BR>
+				--Font-UI: 'Google Sans', #{$Font-Fallback-Sans-serif}; <BR>
+				--Font-Monospace: 'Roboto Mono', #{$Font-Fallback-Monospace};
+			</Code>
 			<Div AutoLayout Direction='Vertical' Width="Fit" Style="Gap: 5px">
 				<Div Class="InputContainer TitledSelect Roomy">
 					<Span>Заголовочный шрифт:</Span>
-					<Select OnChange="Font_Set_Title(this.value)">
+					<Select OnChange="Font_Set_Title(this.value); Select_Resize(this);">
 						<Option>Google Sans</Option>
+						<Option>TT Norms</Option>
 						<Option>Playfair Display</Option>
 						<Option>Bellota</Option>
 					</Select>
 				</Div>
-
-				<Div Class="InputContainer TitledSelect Roomy">
-					<Span>Интерфейсный шрифт:</Span>
-					<Select OnChange="Font_Set_UI(this.value)">
-						<Option>Google Sans</Option>
-						<Option>Roboto</Option>
-						<Option>System-UI</Option>
-					</Select>
-				</Div>
-
 				<Div Class="InputContainer TitledSelect Roomy">
 					<Span>Текстовый шрифт:</Span>
-					<Select OnChange="Font_Set_Text(this.value)">
+					<Select OnChange="Font_Set_Text(this.value); Select_Resize(this);">
 						<Option>Lora</Option>
 						<Option>Roboto</Option>
 						<Option>System-UI</Option>
 					</Select>
 				</Div>
-
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Интерфейсный шрифт:</Span>
+					<Select OnChange="Font_Set_UI(this.value); Select_Resize(this);">
+						<Option>Google Sans</Option>
+						<Option>TT Norms</Option>
+						<Option>Roboto</Option>
+						<Option>Manrope</Option>
+						<Option>System-UI</Option>
+					</Select>
+				</Div>
 				<Div Class="InputContainer TitledSelect Roomy">
 					<Span>Моноширинный шрифт:</Span>
-					<Select OnChange="Font_Set_Monospace(this.value)">
+					<Select OnChange="Font_Set_Monospace(this.value); Select_Resize(this);">
 						<Option>Roboto Mono</Option>
 						<Option>JetBrains Mono</Option>
 					</Select>
@@ -91,10 +110,31 @@
 
 			<HR>
 
-			<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
-				<H2>Кнопки</H2>
-				<Div>На все случаи жизни. Для удобства на каждой кнопке написано названия классов.</Div>
+			<H2>Иконки</H2>
+			<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
+				<Custom-icon Icon="place" Style="--Icon-Color: Var(--Main); --Icon-Scale: 50px;"></Custom-icon>
+
+				<Code Class="Library Block">
+					&lt;Custom-icon <BR>
+					    Icon=&quot;place&quot; <BR>
+					    Style=&quot;--Icon-Color: Var(--Main); --Icon-Scale: 50px;&quot;&gt; <BR>
+					&lt;/Custom-icon&gt;
+				</Code>
 			</Div>
+			<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
+				<Custom-icon Icon="map" Style="--Icon-Scale: 50px;"></Custom-icon>
+
+				<Code Class="Library Block">
+					&lt;Custom-icon <BR>
+					    Icon=&quot;map&quot; <BR>
+					    Style=&quot;--Icon-Scale: 50px;&quot;&gt; <BR>
+					&lt;/Custom-icon&gt;
+				</Code>
+			</Div>
+
+			<HR>
+
+			<H2>Кнопки</H2>
 			<Div Class="Grid">
 				<Button Class="Text">.Text</Button>
 				<Button Class="Text Main">.Text.Main</Button>
@@ -125,15 +165,15 @@
 				<Button Class="Text Gray Outlined" OnClick="Ripple(event)">.Text.Gray.Outlined</Button>
 
 				<Button Class="Text Outlined Icon" OnClick="Ripple(event)">
-					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Custom-icon Icon="add"></Custom-icon>
 					<Span>.Text.Main.Outlined.Icon</Span>
 				</Button>
 				<Button Class="Text Main Outlined Icon" OnClick="Ripple(event)">
-					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Custom-icon Icon="add"></Custom-icon>
 					<Span>.Text.Main.Outlined.Icon</Span>
 				</Button>
 				<Button Class="Text Gray Outlined Icon" OnClick="Ripple(event)">
-					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Custom-icon Icon="add"></Custom-icon>
 					<Span>.Text.Main.Outlined.Icon</Span>
 				</Button>
 
@@ -141,39 +181,64 @@
 				<Button Class="Text Gray Fill">.Text.Gray.Fill</Button>
 
 				<Button Class="Text Main Fill Icon">
-					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Custom-icon Icon="add"></Custom-icon>
 					<Span>.Text.Main.Fill.Icon</Span>
 				</Button>
 				<Button Class="Text Gray Fill Icon">
-					<Custom-icon Icon="Delete Forever"></Custom-icon>
+					<Custom-icon Icon="add"></Custom-icon>
 					<Span>.Text.Main.Fill.Icon</Span>
 				</Button>
 
-				<Custom-round-button Icon="Delete Forever"></Custom-round-button>
+				<Custom-round-button Icon="add" Style="--Scale: 28px"></Custom-round-button>
+
+				<Button Class="Floating" OnClick="Ripple(event)" Style="Position: Sticky"><Custom-icon Icon="add"></Custom-icon></Button>
 			</Div>
 
 			<HR>
 
 			<H2>Ввод</H2>
-
-			<Div>Полноценные кастомные элементы.</Div>
 			<Div Class="Grid">
 				<Custom-checkbox></Custom-checkbox>
+				<Custom-checkbox Label="Показывать цены"></Custom-checkbox>
 
-				<Custom-checkbox Label="Красота"></Custom-checkbox>
+				<Div Class="InputContainer TitledSelect Roomy">
+					<Span>Сортировка по:</Span>
+					<Select OnChange="Select_Resize(this)">
+						<Option>Рейтингу</Option>
+						<Option>Цене</Option>
+					</Select>
+				</Div>
+
+				<Custom-textarea Placeholder="Введите текст..."></Custom-textarea>
+				<Custom-textarea Class="Roomy" Placeholder="Введите текст..."></Custom-textarea>
+				<Custom-textarea Placeholder="Введите текст...">При переполнении появляется кнопка «Показать полностью». Это можно настраивать. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
+				<Custom-textarea Readonly>Только для чтения</Custom-textarea>
+				<Custom-textarea Class="Roomy" Readonly>Только для чтения</Custom-textarea>
+				<Custom-textarea Readonly>При переполнении появляется кнопка «Показать полностью». Это можно настраивать. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
 			</Div>
-
-			<Div>Просто обёртка для уже существующих элементов ввода. Показывать их все не имеет особого смысла, и всё же.</Div>
+			<HR>
 			<Div Class="Grid">
 				<Div Class="InputContainer Outlined">
-					<Input Type="Text" Placeholder='Привет, поле ввода...'>
+					<Input Type="Text" Placeholder='Введите текст...'>
+				</Div>
+
+				<Div Class="InputContainer Outlined Round">
+					<Input Type="Text" Placeholder='Введите текст...'>
 				</Div>
 
 				<Div Class="InputContainer Outlined Roomy">
-					<Input Type="Text" Placeholder='Привет, поле ввода...'>
+					<Input Type="Text" Placeholder='Введите текст...'>
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy Round">
+					<Input Type="Text" Placeholder='Введите текст...'>
 				</Div>
 
 				<Div Class="InputContainer Outlined">
+					<Input Type="Time" Value="15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined Round">
 					<Input Type="Time" Value="15:41">
 				</Div>
 
@@ -181,7 +246,15 @@
 					<Input Type="Time" Value="15:41">
 				</Div>
 
+				<Div Class="InputContainer Outlined Roomy Round">
+					<Input Type="Time" Value="15:41">
+				</Div>
+
 				<Div Class="InputContainer Outlined">
+					<Input Type="Date" Value="2020-12-12">
+				</Div>
+
+				<Div Class="InputContainer Outlined Round">
 					<Input Type="Date" Value="2020-12-12">
 				</Div>
 
@@ -189,20 +262,24 @@
 					<Input Type="Date" Value="2020-12-12">
 				</Div>
 
-				<Div Class="InputContainer Outlined">
-					<Input Type="Datetime-local" Value="2020-12-12 15:41">
-				</Div>
-
-				<Div Class="InputContainer Outlined Roomy">
-					<Input Type="Datetime-local" Value="2020-12-12 15:41">
+				<Div Class="InputContainer Outlined Roomy Round">
+					<Input Type="Date" Value="2020-12-12">
 				</Div>
 
 				<Div Class="InputContainer Outlined">
-					<Input Type="Month" Value="2020-12">
+					<Input Type="Datetime-local" Value="2020-12-12T15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined Round">
+					<Input Type="Datetime-local" Value="2020-12-12T15:41">
 				</Div>
 
 				<Div Class="InputContainer Outlined Roomy">
-					<Input Type="Month" Value="2020-12">
+					<Input Type="Datetime-local" Value="2020-12-12T15:41">
+				</Div>
+
+				<Div Class="InputContainer Outlined Roomy Round">
+					<Input Type="Datetime-local" Value="2020-12-12T15:41">
 				</Div>
 			</Div>
 		</Main>
