@@ -15,7 +15,7 @@ Main
 	.Grid
 	{
 		Display: Grid;
-		Grid-template-columns: Repeat(Auto-fill, Minmax(250px, 1fr));
+		Grid-template-columns: Repeat(Auto-fill, Minmax(300px, 1fr));
 		Gap: 30px 25px;
 		Justify-items: Center;
 		Align-items: Center;
@@ -60,6 +60,23 @@ Main
 		@media ($NarrowScreen)
 		{
 			Font-size: 26px;
+		}
+	}
+
+	H3
+	{
+		@include Reset_H;
+		Font-weight: 500;
+		Font-family: Var(--Font-Title);
+
+		@media ($WideScreen)
+		{
+			Font-size: 26px;
+		}
+
+		@media ($NarrowScreen)
+		{
+			Font-size: 22px;
 		}
 	}
 }
