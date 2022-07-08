@@ -138,15 +138,15 @@
 			<Button Class="Text Gray Outlined" OnClick="Ripple(event)">.Text.Gray.Outlined</Button>
 
 			<Button Class="Text Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="auto_awesome"></Custom-icon>
+				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 			<Button Class="Text Main Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="auto_awesome"></Custom-icon>
+				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 			<Button Class="Text Gray Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="auto_awesome"></Custom-icon>
+				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 
@@ -154,18 +154,18 @@
 			<Button Class="Text Gray Fill" OnClick="Ripple(event)">.Text.Gray.Fill</Button>
 
 			<Button Class="Text Main Fill Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="auto_awesome"></Custom-icon>
+				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Main.Fill.Icon</Span>
 			</Button>
 			<Button Class="Text Gray Fill Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="auto_awesome"></Custom-icon>
+				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Gray.Fill.Icon</Span>
 			</Button>
 
-			<Custom-round-button Icon="auto_awesome" Style="--Scale: 28px"></Custom-round-button>
-			<Custom-round-button Icon="auto_awesome" Style="--Scale: 28px; --Icon-Color: Var(--Main); --Hover-Color: Var(--Main);"></Custom-round-button>
+			<Custom-round-button Icon="add_box" Style="--Scale: 28px"></Custom-round-button>
+			<Custom-round-button Icon="add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main); --Hover-Color: Var(--Main);"></Custom-round-button>
 
-			<Button Class="Floating" OnClick="Ripple(event)" Style="Position: Sticky"><Custom-icon Icon="auto_awesome"></Custom-icon></Button>
+			<Button Class="Floating" OnClick="Ripple(event)" Style="Position: Sticky"><Custom-icon Icon="add_box"></Custom-icon></Button>
 		</Div>
 
 		<HR>
@@ -187,41 +187,77 @@
 
 			<Custom-textarea Placeholder="Введите текст..."></Custom-textarea>
 			<Custom-textarea Class="Roomy" Placeholder="Введите текст..."></Custom-textarea>
-			<Custom-textarea Placeholder="Введите текст...">При переполнении появляется кнопка «Показать полностью». Это можно настраивать. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
+			<Custom-textarea Placeholder="Введите текст...">
+				При переполнении появляется кнопка «Показать полностью».
+
+				Это можно настраивать. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
 			<Custom-textarea Readonly>Только для чтения</Custom-textarea>
 			<Custom-textarea Class="Roomy" Readonly>Только для чтения</Custom-textarea>
-			<Custom-textarea Readonly>При переполнении появляется кнопка «Показать полностью». Это можно настраивать. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
+			<Custom-textarea Readonly>
+				При переполнении появляется кнопка «Показать полностью». Это можно настраивать.
+
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
 		</Div>
 		<HR>
 		<Div Class="Grid">
+			<Div Class="InputContainer">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Roomy">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Roomy Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Roomy">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Roomy Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
 			<Div Class="InputContainer Outlined">
 				<Input Type="Text" Placeholder='Введите текст...'>
 			</Div>
-
 			<Div Class="InputContainer Outlined Round">
 				<Input Type="Text" Placeholder='Введите текст...'>
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy">
 				<Input Type="Text" Placeholder='Введите текст...'>
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy Round">
 				<Input Type="Text" Placeholder='Введите текст...'>
 			</Div>
+			<!-- <Div Class="InputContainer Main Outlined">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Outlined Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Outlined Roomy">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div>
+			<Div Class="InputContainer Main Outlined Roomy Round">
+				<Input Type="Text" Placeholder='Введите текст...'>
+			</Div> -->
 
-			<Div Class="InputContainer Outlined">
+			<!-- <Div Class="InputContainer Outlined">
 				<Input Type="Time" Value="15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Round">
 				<Input Type="Time" Value="15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy">
 				<Input Type="Time" Value="15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy Round">
 				<Input Type="Time" Value="15:41">
 			</Div>
@@ -229,15 +265,12 @@
 			<Div Class="InputContainer Outlined">
 				<Input Type="Date" Value="2020-12-12">
 			</Div>
-
 			<Div Class="InputContainer Outlined Round">
 				<Input Type="Date" Value="2020-12-12">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy">
 				<Input Type="Date" Value="2020-12-12">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy Round">
 				<Input Type="Date" Value="2020-12-12">
 			</Div>
@@ -245,18 +278,41 @@
 			<Div Class="InputContainer Outlined">
 				<Input Type="Datetime-local" Value="2020-12-12T15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Round">
 				<Input Type="Datetime-local" Value="2020-12-12T15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy">
 				<Input Type="Datetime-local" Value="2020-12-12T15:41">
 			</Div>
-
 			<Div Class="InputContainer Outlined Roomy Round">
 				<Input Type="Datetime-local" Value="2020-12-12T15:41">
 			</Div>
+
+			<Div Class="InputContainer Outlined">
+				<Input Type="Email" Value="email@example.com">
+			</Div>
+			<Div Class="InputContainer Outlined Round">
+				<Input Type="Email" Value="email@example.com">
+			</Div>
+			<Div Class="InputContainer Outlined Roomy">
+				<Input Type="Email" Value="email@example.com">
+			</Div>
+			<Div Class="InputContainer Outlined Roomy Round">
+				<Input Type="Email" Value="email@example.com">
+			</Div>
+
+			<Div Class="InputContainer Outlined">
+				<Input Type="Password" Value="SUCKSASAK21.COM">
+			</Div>
+			<Div Class="InputContainer Outlined Round">
+				<Input Type="Password" Value="SUCKSASAK21.COM">
+			</Div>
+			<Div Class="InputContainer Outlined Roomy">
+				<Input Type="Password" Value="SUCKSASAK21.COM">
+			</Div>
+			<Div Class="InputContainer Outlined Roomy Round">
+				<Input Type="Password" Value="SUCKSASAK21.COM">
+			</Div> -->
 		</Div>
 	</Main>
 </Body>

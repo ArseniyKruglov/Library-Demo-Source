@@ -167,7 +167,7 @@ function UglifyJS(Code)
 
 function UglifyHTML(Code)
 {
-	return Code.replace(/\t|\n/g, '').replace(/> </g, '><');
+	return Code.replace(/\t|\n/g, '').replace(/<!--.*-->/g, '').replace(/> </g, '><');
 }
 
 
