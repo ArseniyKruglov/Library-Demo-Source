@@ -176,7 +176,7 @@ function UglifyHTML(Code)
 
 
 
-function GetIcons(Names)
+function GetIcons(Names, Type = 'outlined')
 {
 	const Output = {};
 
@@ -184,7 +184,7 @@ function GetIcons(Names)
 	for (let Name of Names)
 		Promises.push(new Promise((Resolve) =>
 		{
-			FS.readFile(`node_modules/@material-design-icons/svg/outlined/${Name}.svg`, (Error, Data) =>
+			FS.readFile(`node_modules/@material-design-icons/svg/${Type}/${Name}.svg`, (Error, Data) =>
 			{
 				Output[Name] = Data.toString().replace(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">`, '').replace('</svg>', '');
 				Resolve();
@@ -263,57 +263,8 @@ function PackHTML()
 					<Meta CharSet="UTF-8">
 
 					<Title>${Title}</Title>
+					<Link Rel="Icon" Href="Icon.svg">
 
-					<Link Rel="shortcut icon" Href="favicon.ico">
-					<Link Rel="Icon" Type="image/png" Sizes="16x16" Href="favicon-16x16.png">
-					<Link Rel="Icon" Type="image/png" Sizes="32x32" Href="favicon-32x32.png">
-					<Link Rel="Icon" Type="image/png" Sizes="48x48" Href="favicon-48x48.png">
-					<Meta Name="mobile-web-app-capable" Content="yes">
-
-					<Link Rel="apple-touch-Icon" Sizes="57x57" Href="apple-touch-Icon-57x57.png">
-					<Link Rel="apple-touch-Icon" Sizes="60x60" Href="apple-touch-Icon-60x60.png">
-					<Link Rel="apple-touch-Icon" Sizes="72x72" Href="apple-touch-Icon-72x72.png">
-					<Link Rel="apple-touch-Icon" Sizes="76x76" Href="apple-touch-Icon-76x76.png">
-					<Link Rel="apple-touch-Icon" Sizes="114x114" Href="apple-touch-Icon-114x114.png">
-					<Link Rel="apple-touch-Icon" Sizes="120x120" Href="apple-touch-Icon-120x120.png">
-					<Link Rel="apple-touch-Icon" Sizes="144x144" Href="apple-touch-Icon-144x144.png">
-					<Link Rel="apple-touch-Icon" Sizes="152x152" Href="apple-touch-Icon-152x152.png">
-					<Link Rel="apple-touch-Icon" Sizes="167x167" Href="apple-touch-Icon-167x167.png">
-					<Link Rel="apple-touch-Icon" Sizes="180x180" Href="apple-touch-Icon-180x180.png">
-					<Link Rel="apple-touch-Icon" Sizes="1024x1024" Href="apple-touch-Icon-1024x1024.png">
-					<Meta Name="apple-mobile-web-app-capable" Content="yes">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    Href="apple-touch-startup-image-640x1136.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    Href="apple-touch-startup-image-750x1334.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    Href="apple-touch-startup-image-828x1792.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    Href="apple-touch-startup-image-1125x2436.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    Href="apple-touch-startup-image-1242x2208.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    Href="apple-touch-startup-image-1242x2688.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   Href="apple-touch-startup-image-1536x2048.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   Href="apple-touch-startup-image-1668x2224.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   Href="apple-touch-startup-image-1668x2388.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  Href="apple-touch-startup-image-2048x2732.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  Href="apple-touch-startup-image-1620x2160.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   Href="apple-touch-startup-image-1136x640.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   Href="apple-touch-startup-image-1334x750.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   Href="apple-touch-startup-image-1792x828.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   Href="apple-touch-startup-image-2436x1125.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   Href="apple-touch-startup-image-2208x1242.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   Href="apple-touch-startup-image-2688x1242.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  Href="apple-touch-startup-image-2048x1536.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  Href="apple-touch-startup-image-2224x1668.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  Href="apple-touch-startup-image-2388x1668.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" Href="apple-touch-startup-image-2732x2048.png">
-					<Link Rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  Href="apple-touch-startup-image-2160x1620.png">
-
-					<Link Rel="Icon" Type="image/png" Sizes="228x228" Href="coast-228x228.png">
-
-					<!-- <Meta Name="msapplication-TileColor" Content="#fff"> -->
-					<Meta Name="msapplication-TileImage" Content="mstile-144x144.png">
-					<Meta Name="msapplication-config" Content="browserconfig.xml">
-
-					<Link Rel="yandex-tableau-widget" Href="yandex-browser-manifest.json">
-
-					<!-- <Meta Name="Theme-Color" Content="#FFFFFF"> -->
 					<Meta Name="Viewport" Content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 					<Link Rel="StyleSheet" Href="Style.css?${new Date().getTime()}">

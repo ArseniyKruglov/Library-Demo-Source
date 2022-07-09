@@ -12,20 +12,6 @@ Main
 		Padding: 20px;
 	}
 
-	.Grid
-	{
-		Display: Grid;
-		Grid-template-columns: Repeat(Auto-fill, Minmax(300px, 1fr));
-		Gap: 30px 25px;
-		Justify-items: Center;
-		Align-items: Center;
-
-		Custom-textarea
-		{
-			Width: 100%;
-		}
-	}
-
 
 
 	H1
@@ -63,20 +49,56 @@ Main
 		}
 	}
 
-	H3
+	// H3
+	// {
+	// 	@include Reset_H;
+	// 	Font-weight: 500;
+	// 	Font-family: Var(--Font-Title);
+
+	// 	@media ($WideScreen)
+	// 	{
+	// 		Font-size: 26px;
+	// 	}
+
+	// 	@media ($NarrowScreen)
+	// 	{
+	// 		Font-size: 22px;
+	// 	}
+	// }
+
+
+
+	.Grid
 	{
-		@include Reset_H;
-		Font-weight: 500;
-		Font-family: Var(--Font-Title);
+		Display: Grid;
+		Grid-template-columns: Repeat(Auto-fill, Minmax(300px, 1fr));
+		Gap: 30px 25px;
+		Justify-items: Center;
+		Align-items: Center;
 
-		@media ($WideScreen)
+		Custom-textarea
 		{
-			Font-size: 26px;
+			Width: 100%;
 		}
+	}
 
-		@media ($NarrowScreen)
+	Input[Type="Range"]
+	{
+		Width: Min(100%, 500px);
+	}
+
+	#Ripple
+	{
+		Display: Grid;
+		Gap: 10px;
+		Grid-auto-flow: Column;
+
+		& > *
 		{
-			Font-size: 22px;
+			Height: 250px;
+			Border-radius: Var(--Border);
+			Box-shadow: 0 1px 3px HSLA(0, 0%, 0%, 20%), 0 4px 12px HSLA(0, 0%, 0%, 2.5%);
+			Cursor: Pointer;
 		}
 	}
 }

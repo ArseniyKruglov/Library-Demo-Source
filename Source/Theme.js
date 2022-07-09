@@ -30,14 +30,12 @@ function Theme_Set_Gray(Hex)
 
 function Theme_Reset_Main()
 {
-	const Input = document.getElementById('Theme_Main');
-	Input.value = '#D92626';
-	Input.dispatchEvent( new Event('input'));
+	document.getElementById('Theme_Main').value = '#D92626';
+	Theme_Set_Main('#D92626')
 }
 
 function Theme_Reset_Gray()
 {
-	const Input = document.getElementById('Theme_Gray');
-	Input.value = '#171A1C';
-	Input.dispatchEvent( new Event('input'));
+	document.getElementById('Theme_Gray').value = '#171A1C';
+	Theme_Set_Gray('#171A1C');
 }

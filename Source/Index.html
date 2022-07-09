@@ -4,6 +4,8 @@
 		<Div>Библиотека</Div>
 	</Header>
 
+	<HR>
+
 	<Main AutoLayout Direction='Vertical'>
 		<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
 			<H1>Вот такая библиотека.</H1>
@@ -24,7 +26,7 @@
 				    --Lightness: 50%; <BR>
 				}
 			</Code>
-			<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
+			<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
 				<Input Type="Color" Value="#D92626" OnInput="Theme_Set_Main(this.value)" ID="Theme_Main">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
 			</Div>
@@ -38,7 +40,7 @@
 				    --Gray-Saturation: 10%; <BR>
 				}
 			</Code>
-			<Div AutoLayout Direction='Horizontal' AlignY="Center" Style="Gap: 10px">
+			<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
 				<Input Type="Color" Value="#171A1C" OnInput="Theme_Set_Gray(this.value)" ID="Theme_Gray">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
 			</Div>
@@ -56,10 +58,10 @@
 			--Font-UI: 'Google Sans', #{$Font-Fallback-Sans-serif}; <BR>
 			--Font-Monospace: 'Roboto Mono', #{$Font-Fallback-Monospace};
 		</Code>
-		<!-- <Div AutoLayout Direction='Vertical' Width="Fit" Style="Gap: 5px">
+		<Div AutoLayout Direction='Vertical' Width="Fit" Style="Gap: 5px">
 			<Div Class="InputContainer TitledSelect Roomy">
 				<Span>Заголовочный шрифт:</Span>
-				<Select OnChange="Font_Set_Title(this.value); Select_Resize(this);">
+				<Select Is="custom-select" OnChange="Font_Set_Title(this.value)">
 					<Option>Google Sans</Option>
 					<Option>TT Norms</Option>
 					<Option>Playfair Display</Option>
@@ -68,7 +70,7 @@
 			</Div>
 			<Div Class="InputContainer TitledSelect Roomy">
 				<Span>Текстовый шрифт:</Span>
-				<Select OnChange="Font_Set_Text(this.value); Select_Resize(this);">
+				<Select Is="custom-select" OnChange="Font_Set_Text(this.value)">
 					<Option>Lora</Option>
 					<Option>Roboto</Option>
 					<Option>System-UI</Option>
@@ -76,7 +78,7 @@
 			</Div>
 			<Div Class="InputContainer TitledSelect Roomy">
 				<Span>Интерфейсный шрифт:</Span>
-				<Select OnChange="Font_Set_UI(this.value); Select_Resize(this);">
+				<Select Is="custom-select" OnChange="Font_Set_UI(this.value)">
 					<Option>Google Sans</Option>
 					<Option>TT Norms</Option>
 					<Option>Roboto</Option>
@@ -86,19 +88,28 @@
 			</Div>
 			<Div Class="InputContainer TitledSelect Roomy">
 				<Span>Моноширинный шрифт:</Span>
-				<Select OnChange="Font_Set_Monospace(this.value); Select_Resize(this);">
+				<Select Is="custom-select" OnChange="Font_Set_Monospace(this.value)">
 					<Option>Roboto Mono</Option>
 					<Option>JetBrains Mono</Option>
 				</Select>
 			</Div>
-		</Div> -->
+		</Div>
 
+		<HR>
+
+		<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+			<H2>Скругление</H2>
+			<Div>Задается как CSS-переменная.</Div>
+		</Div>
+		<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
+			<Input Type="Range" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius_Set(parseFloat(this.value))">
+			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius_Reset()">Сбросить</Button>
+		</Div>
 		<HR>
 
 		<H2>Иконки</H2>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
 			<Custom-icon Icon="place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
-
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
 				    Icon=&quot;place&quot; <BR>
@@ -108,7 +119,6 @@
 		</Div>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
 			<Custom-icon Icon="map" Style="--Scale: 50px;"></Custom-icon>
-
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
 				    Icon=&quot;map&quot; <BR>
@@ -116,6 +126,21 @@
 				&lt;/Custom-icon&gt;
 			</Code>
 		</Div>
+
+		<HR>
+
+		<H2>Круги на воде</H2>
+		<Div ID="Ripple">
+			<Div OnClick="Ripple(event)"></Div>
+			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Red"></Div>
+			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Green"></Div>
+		</Div>
+		<Code Class="Library Block">
+			&lt;Div <BR>
+			    OnClick=&quot;Ripple(event)&quot; <BR>
+			    Style=&quot;--Ripple-Color: Red&quot;&gt; <BR>
+			&lt;/Div&gt;
+		</Code>
 
 		<HR>
 
@@ -179,7 +204,7 @@
 
 			<Div Class="InputContainer TitledSelect Roomy">
 				<Span>Сортировка по:</Span>
-				<Select OnChange="Select_Resize(this)">
+				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
