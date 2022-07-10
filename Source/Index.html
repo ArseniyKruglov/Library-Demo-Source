@@ -1,65 +1,73 @@
 <Body AutoLayout Direction="Vertical" Width="Fill" Height="Fill">
-	<Header AutoLayout Direction='Horizontal' AlignY='Center'>
+	<Header AutoLayout Direction="Horizontal" AlignY="Center">
 		<Custom-icon Icon="code"></Custom-icon>
 		<Div>Библиотека</Div>
 	</Header>
 
 	<HR>
 
-	<Main AutoLayout Direction='Vertical'>
-		<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+	<Main AutoLayout Direction="Vertical">
+		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
 			<H1>Вот такая библиотека.</H1>
-			<Div>Эта страница — демонстрация её красоты и лёгкости. Вдохновлено Google и Microsoft.</Div>
+			<Div>Эта страница — демонстрация её красоты и лёгкости. Вдохновлено Google, IKEA и Microsoft.</Div>
 		</Div>
-		<A Class='Text Main Roomy Fill' Href='https://github.com/ArseniyKruglov/Library' Target='_blank'>Исходный код</A>
+		<A Class="Text Main Roomy Fill" Href="https://github.com/ArseniyKruglov/Library" OnClick="Ripple(event)" Target="_blank">Исходный код</A>
 
 		<HR>
 
-		<H2>Цвета</H2>
-		<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
+		<H2>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Theme/Colors.scss" Title="Исходный код" Target="_blank">
+				Цвета
+			</A>
+		</H2>
+		<Div AutoLayout Direction="Vertical" Style="Gap: 15px">
 			<Div>Основной цвет задается как CSS-переменные: Hue, Saturation и Lightness. На их основе создается цветовая палитра сайта.</Div>
 			<Code Class="Library Block" ID="Theme_Code_Main">
 				:root <BR>
 				{ <BR>
-				    --Hue: 0; <BR>
-				    --Saturation: 70%; <BR>
-				    --Lightness: 50%; <BR>
+				   --Hue: 0; <BR>
+				   --Saturation: 70%; <BR>
+				   --Lightness: 50%; <BR>
 				}
 			</Code>
-			<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Value="#D92626" OnInput="Theme_Set_Main(this.value)" ID="Theme_Main">
+			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
+				<Input Type="Color" Class="Library" Value="#D92626" OnInput="Theme_Set_Main(this.value)" ID="Theme_Main">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
 			</Div>
 		</Div>
-		<Div AutoLayout Direction='Vertical' Style="Gap: 15px">
+		<Div AutoLayout Direction="Vertical" Style="Gap: 15px">
 			<Div>Серый — не серый — к нему подмешивается немного другого цвета.</Div>
 			<Code Class="Library Block" ID="Theme_Code_Gray">
 				:root <BR>
 				{ <BR>
-				    --Gray-Hue: 210; <BR>
-				    --Gray-Saturation: 10%; <BR>
+				   --Gray-Hue: 210; <BR>
+				   --Gray-Saturation: 10%; <BR>
 				}
 			</Code>
-			<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Value="#171A1C" OnInput="Theme_Set_Gray(this.value)" ID="Theme_Gray">
+			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
+				<Input Type="Color" Class="Library" Value="#171A1C" OnInput="Theme_Set_Gray(this.value)" ID="Theme_Gray">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
 			</Div>
 		</Div>
 
 		<HR>
 
-		<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
-			<H2>Шрифты</H2>
+		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
+			<H2>
+				<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Theme/Fonts.scss" Title="Исходный код" Target="_blank">
+					Шрифты
+				</A>
+			</H2>
 			<Div>Все шрифты разделены на четыре категории: заголовочные, текстовые, интерфейсные и моноширинные.</Div>
 		</Div>
 		<Code Class="Library Block">
-			--Font-Title: 'Google Sans', #{$Font-Fallback-Sans-serif}; <BR>
-			--Font-Text: 'Lora', #{$Font-Fallback-Serif}; <BR>
-			--Font-UI: 'Google Sans', #{$Font-Fallback-Sans-serif}; <BR>
-			--Font-Monospace: 'Roboto Mono', #{$Font-Fallback-Monospace};
+			--Font-Title: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
+			--Font-Text: "Lora", #{$Font-Fallback-Serif}; <BR>
+			--Font-UI: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
+			--Font-Monospace: "Roboto Mono", #{$Font-Fallback-Monospace};
 		</Code>
-		<Div AutoLayout Direction='Vertical' Width="Fit" Style="Gap: 5px">
-			<Div Class="InputContainer TitledSelect Roomy">
+		<Div AutoLayout Direction="Vertical" Width="Fit" Style="Gap: 5px">
+			<Div Class="InputContainer Titled Roomy">
 				<Span>Заголовочный шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_Title(this.value)">
 					<Option>Google Sans</Option>
@@ -68,7 +76,7 @@
 					<Option>Bellota</Option>
 				</Select>
 			</Div>
-			<Div Class="InputContainer TitledSelect Roomy">
+			<Div Class="InputContainer Titled Roomy">
 				<Span>Текстовый шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_Text(this.value)">
 					<Option>Lora</Option>
@@ -76,17 +84,19 @@
 					<Option>System-UI</Option>
 				</Select>
 			</Div>
-			<Div Class="InputContainer TitledSelect Roomy">
+			<Div Class="InputContainer Titled Roomy">
 				<Span>Интерфейсный шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_UI(this.value)">
 					<Option>Google Sans</Option>
 					<Option>TT Norms</Option>
 					<Option>Roboto</Option>
 					<Option>Manrope</Option>
+					<Option>PT Sans</Option>
+					<Option>Lato</Option>
 					<Option>System-UI</Option>
 				</Select>
 			</Div>
-			<Div Class="InputContainer TitledSelect Roomy">
+			<Div Class="InputContainer Titled Roomy">
 				<Span>Моноширинный шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_Monospace(this.value)">
 					<Option>Roboto Mono</Option>
@@ -97,23 +107,30 @@
 
 		<HR>
 
-		<Div AutoLayout Direction='Vertical' Style="Gap: 10px">
+		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
 			<H2>Скругление</H2>
 			<Div>Задается как CSS-переменная.</Div>
 		</Div>
-		<Div AutoLayout Direction='Horizontal' AlignY="Center" Wrap Style="Gap: 10px">
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
 			<Input Type="Range" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius_Set(parseFloat(this.value))">
 			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius_Reset()">Сбросить</Button>
 		</Div>
 		<HR>
 
-		<H2>Иконки</H2>
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+			<H2>
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Icon" Title="Исходный код" Target="_blank">
+					Иконки
+				</A>
+			</H2>
+			<SVG Height="24px"viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+		</Div>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
 			<Custom-icon Icon="place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
-				    Icon=&quot;place&quot; <BR>
-				    Style=&quot;--Color: Var(--Main); --Scale: 50px;&quot;&gt; <BR>
+				   Icon="place" <BR>
+				   Style="--Color: Var(--Main); --Scale: 50px;"&gt; <BR>
 				&lt;/Custom-icon&gt;
 			</Code>
 		</Div>
@@ -121,15 +138,19 @@
 			<Custom-icon Icon="map" Style="--Scale: 50px;"></Custom-icon>
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
-				    Icon=&quot;map&quot; <BR>
-				    Style=&quot;--Scale: 50px;&quot;&gt; <BR>
+				   Icon="map" <BR>
+				   Style="--Scale: 50px;"&gt; <BR>
 				&lt;/Custom-icon&gt;
 			</Code>
 		</Div>
 
 		<HR>
 
-		<H2>Круги на воде</H2>
+		<H2>
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
+				Круги на воде
+			</A>
+		</H2>
 		<Div ID="Ripple">
 			<Div OnClick="Ripple(event)"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Red"></Div>
@@ -137,14 +158,19 @@
 		</Div>
 		<Code Class="Library Block">
 			&lt;Div <BR>
-			    OnClick=&quot;Ripple(event)&quot; <BR>
-			    Style=&quot;--Ripple-Color: Red&quot;&gt; <BR>
+			   OnClick="Ripple(event)" <BR>
+			   Style="--Ripple-Color: Red"&gt; <BR>
 			&lt;/Div&gt;
 		</Code>
 
 		<HR>
 
 		<H2>Кнопки</H2>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Button/Text.scss" Title="Исходный код" Target="_blank">
+				Обычные
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Button Class="Text">.Text</Button>
 			<Button Class="Text Main">.Text.Main</Button>
@@ -186,30 +212,61 @@
 				<Custom-icon Icon="add_box"></Custom-icon>
 				<Span>.Text.Gray.Fill.Icon</Span>
 			</Button>
-
+		</Div>
+		<HR>
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+			<H3>
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
+					С иконкой
+				</A>
+			</H3>
+			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+		</Div>
+		<Div Class="Grid">
 			<Custom-round-button Icon="add_box" Style="--Scale: 28px"></Custom-round-button>
 			<Custom-round-button Icon="add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main); --Hover-Color: Var(--Main);"></Custom-round-button>
-
+		</Div>
+		<HR>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Button/Floating.scss" Title="Исходный код" Target="_blank">
+				«Floating action button»
+			</A>
+		</H3>
+		<!-- <Custom-checkbox Label="Парить"></Custom-checkbox> -->
+		<Div Class="Grid">
 			<Button Class="Floating" OnClick="Ripple(event)" Style="Position: Sticky"><Custom-icon Icon="add_box"></Custom-icon></Button>
 		</Div>
 
 		<HR>
 
 		<H2>Ввод</H2>
+
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+			<H3>
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
+					Checkbox
+				</A>
+			</H3>
+			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+		</Div>
 		<Div Class="Grid">
 			<Custom-checkbox></Custom-checkbox>
 			<Custom-checkbox Class="Main"></Custom-checkbox>
 			<Custom-checkbox Label="Показывать цены"></Custom-checkbox>
 			<Custom-checkbox Label="Показывать цены" Class="Main"></Custom-checkbox>
+		</Div>
 
-			<Div Class="InputContainer TitledSelect Roomy">
-				<Span>Сортировка по:</Span>
-				<Select Is="custom-select">
-					<Option>Рейтингу</Option>
-					<Option>Цене</Option>
-				</Select>
-			</Div>
+		<HR>
 
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+			<H3>
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
+					Textarea
+				</A>
+			</H3>
+			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+		</Div>
+		<Div Class="Grid">
 			<Custom-textarea Placeholder="Введите текст..."></Custom-textarea>
 			<Custom-textarea Class="Roomy" Placeholder="Введите текст..."></Custom-textarea>
 			<Custom-textarea Placeholder="Введите текст...">
@@ -223,121 +280,76 @@
 
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Custom-textarea>
 		</Div>
+
 		<HR>
+
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
+				Обёртка
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Div Class="InputContainer">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Roomy">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Roomy Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Main">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Main Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Main Roomy">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Main Roomy Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Outlined">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Outlined Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
 			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
+				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
-			<!-- <Div Class="InputContainer Main Outlined">
-				<Input Type="Text" Placeholder='Введите текст...'>
-			</Div>
-			<Div Class="InputContainer Main Outlined Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
-			</Div>
-			<Div Class="InputContainer Main Outlined Roomy">
-				<Input Type="Text" Placeholder='Введите текст...'>
-			</Div>
-			<Div Class="InputContainer Main Outlined Roomy Round">
-				<Input Type="Text" Placeholder='Введите текст...'>
-			</Div> -->
+		</Div>
 
-			<!-- <Div Class="InputContainer Outlined">
-				<Input Type="Time" Value="15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Time" Value="15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Time" Value="15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Time" Value="15:41">
+		<HR>
+
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
+				Обёртка c описанием
+			</A>
+		</H3>
+		<Div Class="Grid">
+			<Div Class="InputContainer Titled Roomy">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
 			</Div>
 
-			<Div Class="InputContainer Outlined">
-				<Input Type="Date" Value="2020-12-12">
+			<Div Class="InputContainer Titled Roomy Main">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
 			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Date" Value="2020-12-12">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Date" Value="2020-12-12">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Date" Value="2020-12-12">
-			</Div>
-
-			<Div Class="InputContainer Outlined">
-				<Input Type="Datetime-local" Value="2020-12-12T15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Datetime-local" Value="2020-12-12T15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Datetime-local" Value="2020-12-12T15:41">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Datetime-local" Value="2020-12-12T15:41">
-			</Div>
-
-			<Div Class="InputContainer Outlined">
-				<Input Type="Email" Value="email@example.com">
-			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Email" Value="email@example.com">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Email" Value="email@example.com">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Email" Value="email@example.com">
-			</Div>
-
-			<Div Class="InputContainer Outlined">
-				<Input Type="Password" Value="SUCKSASAK21.COM">
-			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Password" Value="SUCKSASAK21.COM">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Password" Value="SUCKSASAK21.COM">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Password" Value="SUCKSASAK21.COM">
-			</Div> -->
 		</Div>
 	</Main>
 </Body>

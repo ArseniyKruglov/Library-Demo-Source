@@ -32,7 +32,8 @@ Main
 		}
 	}
 
-	H2
+	H2,
+	H2 > A
 	{
 		@include Reset_H;
 		Font-weight: 500;
@@ -49,22 +50,31 @@ Main
 		}
 	}
 
-	// H3
-	// {
-	// 	@include Reset_H;
-	// 	Font-weight: 500;
-	// 	Font-family: Var(--Font-Title);
+	H3,
+	H3 > A
+	{
+		@include Reset_H;
+		Font-weight: 500;
+		Font-family: Var(--Font-Title);
+		Color: Var(--Gray-80);
 
-	// 	@media ($WideScreen)
-	// 	{
-	// 		Font-size: 26px;
-	// 	}
+		@media ($WideScreen)
+		{
+			Font-size: 22px;
+		}
 
-	// 	@media ($NarrowScreen)
-	// 	{
-	// 		Font-size: 22px;
-	// 	}
-	// }
+		@media ($NarrowScreen)
+		{
+			Font-size: 20px;
+		}
+	}
+
+	H2 > A,
+	H3 > A
+	{
+		@include Reset_A;
+		Border-bottom: 1.75px Solid Var(--Main-UI);
+	}
 
 
 
@@ -100,5 +110,10 @@ Main
 			Box-shadow: 0 1px 3px HSLA(0, 0%, 0%, 20%), 0 4px 12px HSLA(0, 0%, 0%, 2.5%);
 			Cursor: Pointer;
 		}
+	}
+
+	Code .InputContainer
+	{
+		Background-color: #FFFFFF;
 	}
 }
