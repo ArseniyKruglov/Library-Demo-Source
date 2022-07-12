@@ -1,0 +1,22 @@
+#FAB_Content
+{
+	& > .Locked
+	{
+		Position: Sticky;
+	}
+
+	& > .Locked + .Placeholder
+	{
+		Display: None;
+	}
+
+	.Placeholder
+	{
+		Font-family: Var(--Font-Monospace);
+		Text-align: Center;
+		Height: 56px;
+		Display: Flex;
+		Align-items: Center;
+		Color: Var(--Gray-80);
+	}
+}

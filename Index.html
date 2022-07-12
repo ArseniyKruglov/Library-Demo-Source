@@ -15,8 +15,15 @@
 
 		<HR>
 
+		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
+			<H2>Совместимость</H2>
+			<Div>Библиотека полностью совместима с современными версиями Chromium, Firefox и Safari. И, судя по данным Can I Use, будет работать у более чем 95% пользователей. Основые ограничители — CSS-переменные и веб-компоненты.</Div>
+		</Div>
+
+		<HR>
+
 		<H2>
-			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Theme/Colors.scss" Title="Исходный код" Target="_blank">
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Theme/Colors.scss" Title="Исходный код" Target="_blank">
 				Цвета
 			</A>
 		</H2>
@@ -54,24 +61,26 @@
 
 		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
 			<H2>
-				<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Theme/Fonts.scss" Title="Исходный код" Target="_blank">
+				<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Theme/Fonts.scss" Title="Исходный код" Target="_blank">
 					Шрифты
 				</A>
 			</H2>
 			<Div>Все шрифты разделены на четыре категории: заголовочные, текстовые, интерфейсные и моноширинные.</Div>
 		</Div>
-		<Code Class="Library Block">
-			--Font-Title: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
-			--Font-Text: "Lora", #{$Font-Fallback-Serif}; <BR>
-			--Font-UI: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
-			--Font-Monospace: "Roboto Mono", #{$Font-Fallback-Monospace};
+		<Code Class="Library Block" ID="Font_Code">
+			:root <BR>
+			{ <BR>
+			   --Font-Title: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
+			   --Font-Text: "Lora", #{$Font-Fallback-Serif}; <BR>
+			   --Font-UI: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
+			   --Font-Monospace: "Roboto Mono", #{$Font-Fallback-Monospace}; <BR>
+			}
 		</Code>
 		<Div AutoLayout Direction="Vertical" Width="Fit" Style="Gap: 5px">
 			<Div Class="InputContainer Titled Roomy">
 				<Span>Заголовочный шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_Title(this.value)">
 					<Option>Google Sans</Option>
-					<Option>TT Norms</Option>
 					<Option>Playfair Display</Option>
 					<Option>Bellota</Option>
 				</Select>
@@ -88,11 +97,7 @@
 				<Span>Интерфейсный шрифт:</Span>
 				<Select Is="custom-select" OnChange="Font_Set_UI(this.value)">
 					<Option>Google Sans</Option>
-					<Option>TT Norms</Option>
 					<Option>Roboto</Option>
-					<Option>Manrope</Option>
-					<Option>PT Sans</Option>
-					<Option>Lato</Option>
 					<Option>System-UI</Option>
 				</Select>
 			</Div>
@@ -111,6 +116,12 @@
 			<H2>Скругление</H2>
 			<Div>Задается как CSS-переменная.</Div>
 		</Div>
+		<Code Class="Library Block" ID="Font_Code">
+			:root <BR>
+			{ <BR>
+			   --Border: 2.5px; <BR>
+			}
+		</Code>
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
 			<Input Type="Range" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius_Set(parseFloat(this.value))">
 			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius_Reset()">Сбросить</Button>
@@ -123,7 +134,10 @@
 					Иконки
 				</A>
 			</H2>
-			<SVG Height="24px"viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+			<Div Class="ItsWebComponent">
+				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+				<Span>Веб-компонент</Span>
+			</Div>
 		</Div>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
 			<Custom-icon Icon="place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
@@ -148,7 +162,7 @@
 
 		<H2>
 			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
-				Круги на воде
+				Рябь
 			</A>
 		</H2>
 		<Div ID="Ripple">
@@ -167,7 +181,7 @@
 
 		<H2>Кнопки</H2>
 		<H3>
-			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Button/Text.scss" Title="Исходный код" Target="_blank">
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Button/Text.scss" Title="Исходный код" Target="_blank">
 				Обычные
 			</A>
 		</H3>
@@ -220,21 +234,29 @@
 					С иконкой
 				</A>
 			</H3>
-			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+			<Div Class="ItsWebComponent">
+				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+				<Span>Веб-компонент</Span>
+			</Div>
 		</Div>
 		<Div Class="Grid">
 			<Custom-round-button Icon="add_box" Style="--Scale: 28px"></Custom-round-button>
 			<Custom-round-button Icon="add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main); --Hover-Color: Var(--Main);"></Custom-round-button>
 		</Div>
 		<HR>
-		<H3>
-			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Button/Floating.scss" Title="Исходный код" Target="_blank">
-				«Floating action button»
+		<H3 ID="FAB">
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Button/Floating.scss" Title="Исходный код" Target="_blank">
+				Парящая
 			</A>
 		</H3>
-		<!-- <Custom-checkbox Label="Парить"></Custom-checkbox> -->
-		<Div Class="Grid">
-			<Button Class="Floating" OnClick="Ripple(event)" Style="Position: Sticky"><Custom-icon Icon="add_box"></Custom-icon></Button>
+		<Custom-checkbox Label="Парить" OnChange="FAB_Float(this.checked)"></Custom-checkbox>
+		<Div Class="Grid" ID="FAB_Content">
+			<Button Class="Floating Locked" OnClick="Ripple(event)">
+				<Custom-icon Icon="add_box"></Custom-icon>
+			</Button>
+			<Div Class="Placeholder">
+				Он улетел, но обещал вернуться
+			</Div>
 		</Div>
 
 		<HR>
@@ -247,7 +269,11 @@
 					Checkbox
 				</A>
 			</H3>
-			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+
+			<Div Class="ItsWebComponent">
+				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+				<Span>Веб-компонент</Span>
+			</Div>
 		</Div>
 		<Div Class="Grid">
 			<Custom-checkbox></Custom-checkbox>
@@ -264,7 +290,10 @@
 					Textarea
 				</A>
 			</H3>
-			<SVG Height="24px" viewBox="0 0 161 132"><Title>Это веб-компонент</Title><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+			<Div Class="ItsWebComponent">
+				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
+				<Span>Веб-компонент</Span>
+			</Div>
 		</Div>
 		<Div Class="Grid">
 			<Custom-textarea Placeholder="Введите текст..."></Custom-textarea>
@@ -283,12 +312,25 @@
 
 		<HR>
 
-		<H3>
-			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
+		<H3 ID="Wrapper">
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
 				Обёртка
 			</A>
 		</H3>
-		<Div Class="Grid">
+		<Div Class="InputContainer Roomy Titled Outlined">
+			<Span>Тип поля ввода:</Span>
+			<Select Is="custom-select" OnChange="Wrapper_Set(this.value)">
+				<Option>Text</Option>
+				<Option>Number</Option>
+				<Option>Date</Option>
+				<Option>Time</Option>
+				<Option>Datetime-local</Option>
+				<Option>Email</Option>
+				<Option>Password</Option>
+				<Option>Tel</Option>
+			</Select>
+		</Div>
+		<Div Class="Grid" ID="Wrapper_Content">
 			<Div Class="InputContainer">
 				<Input Type="Text" Placeholder="Введите текст...">
 			</Div>
@@ -330,11 +372,25 @@
 		<HR>
 
 		<H3>
-			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
 				Обёртка c описанием
 			</A>
 		</H3>
 		<Div Class="Grid">
+			<Div Class="InputContainer Titled">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Round">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
 			<Div Class="InputContainer Titled Roomy">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
@@ -342,14 +398,76 @@
 					<Option>Цене</Option>
 				</Select>
 			</Div>
-
-			<Div Class="InputContainer Titled Roomy Main">
+			<Div Class="InputContainer Titled Roomy Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
 			</Div>
+			<Div Class="InputContainer Titled Main">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Main Round">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Main Roomy">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Main Roomy Round">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Outlined">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Outlined Round">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Outlined Roomy">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+			<Div Class="InputContainer Titled Outlined Roomy Round">
+				<Span>Сортировка по:</Span>
+				<Select Is="custom-select">
+					<Option>Рейтингу</Option>
+					<Option>Цене</Option>
+				</Select>
+			</Div>
+		</Div>
+
+		<HR>
+
+		<H3>Стилизованные</H3>
+		<Div Class="Grid">
+			<Input Type="Range" Class="Library">
 		</Div>
 	</Main>
 </Body>

@@ -56,7 +56,7 @@ Main
 		@include Reset_H;
 		Font-weight: 500;
 		Font-family: Var(--Font-Title);
-		Color: Var(--Gray-80);
+		// Color: Var(--Gray-80);
 
 		@media ($WideScreen)
 		{
@@ -89,6 +89,28 @@ Main
 		Custom-textarea
 		{
 			Width: 100%;
+		}
+	}
+
+	.ItsWebComponent
+	{
+		Display: Flex;
+		Gap: 7.5px;
+		Padding: 7.5px 10px 6.5px 8.5px;
+		Border: 1px Solid Var(--Gray-20);
+		Border-radius: 50px;
+
+		& > svg
+		{
+			Height: 16px;
+		}
+
+		& > Span
+		{
+			Font-family: Var(--Font-UI);
+			Font-size: 14px;
+			Font-weight: 500;
+			Color: Var(--Gray-85);
 		}
 	}
 
