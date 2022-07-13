@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Google+Sans:400,500|Lora:400,500|Bellota:700|Playfair+Display:500|Roboto:400,500|Roboto+Mono:400|Manrope:400,500|PT+Sans:400,500|Lato:400,500");
+@import "https://fonts.googleapis.com/css?family=Google+Sans:400,500|Lora:400,500|Bellota:700|Playfair+Display:500|Roboto:400,500|Roboto+Mono:400";
 
 :root
 {
@@ -6,13 +6,15 @@
 	--Saturation: 70%;
 	--Lightness: 50%;
 
+	--DarkThemeMultiplier: 5%;
+
 	--Gray-Hue: 210;
 	--Gray-Saturation: 10%;
 
-	--Font-Title: 'Google Sans', #{$Font-Fallback-Sans-serif};
+	--Font-Title: 'Google Sans', #{$Font-Fallback-SansSerif};
 	--Font-Text: 'Lora', #{$Font-Fallback-Serif};
-	--Font-UI: 'Google Sans', #{$Font-Fallback-Sans-serif};
+	--Font-UI: 'Google Sans', #{$Font-Fallback-SansSerif};
 	--Font-Monospace: 'Roboto Mono', #{$Font-Fallback-Monospace};
 
-	--Border: 2.5px;
+	--Border-radius: 2.5px;
 }

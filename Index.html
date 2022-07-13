@@ -1,23 +1,23 @@
 <Body AutoLayout Direction="Vertical" Width="Fill" Height="Fill">
 	<Header AutoLayout Direction="Horizontal" AlignY="Center">
-		<Custom-icon Icon="code"></Custom-icon>
-		<Div>Библиотека</Div>
+		<Custom-icon Icon="outlined/code"></Custom-icon>
+		<Div>Компоненты</Div>
 	</Header>
 
 	<HR>
 
 	<Main AutoLayout Direction="Vertical">
 		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
-			<H1>Вот такая библиотека.</H1>
-			<Div>Эта страница — демонстрация её красоты и лёгкости. Вдохновлено Google, IKEA и Microsoft.</Div>
+			<H1>Вот такие компоненты.</H1>
+			<Div>На этой странице вы можете ознакомиться с возможностями библиотеки и узнать её основые принципы.</Div>
 		</Div>
-		<A Class="Text Main Roomy Fill" Href="https://github.com/ArseniyKruglov/Library" OnClick="Ripple(event)" Target="_blank">Исходный код</A>
+		<A Class="Text Main Roomy Fill" Href="https://github.com/ArseniyKruglov/Components" OnClick="Ripple(event)" Target="_blank">Исходный код</A>
 
 		<HR>
 
 		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
 			<H2>Совместимость</H2>
-			<Div>Библиотека полностью совместима с современными версиями Chromium, Firefox и Safari. И, судя по данным Can I Use, будет работать у более чем 95% пользователей. Основые ограничители — CSS-переменные и веб-компоненты.</Div>
+			<Div>Библиотека полностью совместима с современными версиями Chromium, Firefox и Safari. И, судя по данным Can I Use, будет работать у более чем 95% пользователей. Основные ограничители — CSS-переменные и веб-компоненты.</Div>
 		</Div>
 
 		<HR>
@@ -38,7 +38,7 @@
 				}
 			</Code>
 			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Class="Library" Value="#D92626" OnInput="Theme_Set_Main(this.value)" ID="Theme_Main">
+				<Input Type="Color" Class="Library" Value="#D92626" OnInput="Theme_Set_Main(Hex_To_HSL(this.value))" ID="Theme_Main">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
 			</Div>
 		</Div>
@@ -52,7 +52,7 @@
 				}
 			</Code>
 			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Class="Library" Value="#171A1C" OnInput="Theme_Set_Gray(this.value)" ID="Theme_Gray">
+				<Input Type="Color" Class="Library" Value="#171A1C" OnInput="Theme_Set_Gray(Hex_To_HSL(this.value))" ID="Theme_Gray">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
 			</Div>
 		</Div>
@@ -67,70 +67,57 @@
 			</H2>
 			<Div>Все шрифты разделены на четыре категории: заголовочные, текстовые, интерфейсные и моноширинные.</Div>
 		</Div>
-		<Code Class="Library Block" ID="Font_Code">
-			:root <BR>
-			{ <BR>
-			   --Font-Title: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
-			   --Font-Text: "Lora", #{$Font-Fallback-Serif}; <BR>
-			   --Font-UI: "Google Sans", #{$Font-Fallback-Sans-serif}; <BR>
-			   --Font-Monospace: "Roboto Mono", #{$Font-Fallback-Monospace}; <BR>
-			}
-		</Code>
+		<Code Class="Library Block" ID="Font_Code"></Code>
 		<Div AutoLayout Direction="Vertical" Width="Fit" Style="Gap: 5px">
-			<Div Class="InputContainer Titled Roomy">
+			<Label Class="InputContainer Titled Roomy">
 				<Span>Заголовочный шрифт:</Span>
-				<Select Is="custom-select" OnChange="Font_Set_Title(this.value)">
+				<Select Is="custom-select" OnChange="Font.Title = this.value">
 					<Option>Google Sans</Option>
 					<Option>Playfair Display</Option>
 					<Option>Bellota</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Roomy">
 				<Span>Текстовый шрифт:</Span>
-				<Select Is="custom-select" OnChange="Font_Set_Text(this.value)">
+				<Select Is="custom-select" OnChange="Font.Text = this.value">
 					<Option>Lora</Option>
 					<Option>Roboto</Option>
 					<Option>System-UI</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Roomy">
 				<Span>Интерфейсный шрифт:</Span>
-				<Select Is="custom-select" OnChange="Font_Set_UI(this.value)">
+				<Select Is="custom-select" OnChange="Font.UI = this.value">
 					<Option>Google Sans</Option>
 					<Option>Roboto</Option>
 					<Option>System-UI</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Roomy">
 				<Span>Моноширинный шрифт:</Span>
-				<Select Is="custom-select" OnChange="Font_Set_Monospace(this.value)">
+				<Select Is="custom-select" OnChange="Font.Monospace = this.value">
 					<Option>Roboto Mono</Option>
 					<Option>JetBrains Mono</Option>
 				</Select>
-			</Div>
+			</Label>
 		</Div>
 
 		<HR>
 
 		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
 			<H2>Скругление</H2>
-			<Div>Задается как CSS-переменная.</Div>
+			<Div>Задаётся как CSS-переменная.</Div>
 		</Div>
-		<Code Class="Library Block" ID="Font_Code">
-			:root <BR>
-			{ <BR>
-			   --Border: 2.5px; <BR>
-			}
-		</Code>
+		<Code Class="Library Block" ID="BorderRadius_Code"></Code>
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-			<Input Type="Range" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius_Set(parseFloat(this.value))">
-			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius_Reset()">Сбросить</Button>
+			<Input Type="Range" Class="Library" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius.Value = parseFloat(this.value)">
+			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius.Reset()">Сбросить</Button>
 		</Div>
 		<HR>
 
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
 			<H2>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Icon" Title="Исходный код" Target="_blank">
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Icon" Title="Исходный код" Target="_blank">
 					Иконки
 				</A>
 			</H2>
@@ -140,19 +127,19 @@
 			</Div>
 		</Div>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
-			<Custom-icon Icon="place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
+			<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
-				   Icon="place" <BR>
+				   Icon="outlined/place" <BR>
 				   Style="--Color: Var(--Main); --Scale: 50px;"&gt; <BR>
 				&lt;/Custom-icon&gt;
 			</Code>
 		</Div>
 		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
-			<Custom-icon Icon="map" Style="--Scale: 50px;"></Custom-icon>
+			<Custom-icon Icon="outlined/map" Style="--Scale: 50px;"></Custom-icon>
 			<Code Class="Library Block">
 				&lt;Custom-icon <BR>
-				   Icon="map" <BR>
+				   Icon="outlined/map" <BR>
 				   Style="--Scale: 50px;"&gt; <BR>
 				&lt;/Custom-icon&gt;
 			</Code>
@@ -161,7 +148,7 @@
 		<HR>
 
 		<H2>
-			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
 				Рябь
 			</A>
 		</H2>
@@ -203,15 +190,15 @@
 			<Button Class="Text Gray Outlined" OnClick="Ripple(event)">.Text.Gray.Outlined</Button>
 
 			<Button Class="Text Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 			<Button Class="Text Main Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 			<Button Class="Text Gray Outlined Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 				<Span>.Text.Main.Outlined.Icon</Span>
 			</Button>
 
@@ -219,18 +206,18 @@
 			<Button Class="Text Gray Fill" OnClick="Ripple(event)">.Text.Gray.Fill</Button>
 
 			<Button Class="Text Main Fill Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 				<Span>.Text.Main.Fill.Icon</Span>
 			</Button>
 			<Button Class="Text Gray Fill Icon" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 				<Span>.Text.Gray.Fill.Icon</Span>
 			</Button>
 		</Div>
 		<HR>
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
 			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
 					С иконкой
 				</A>
 			</H3>
@@ -240,8 +227,8 @@
 			</Div>
 		</Div>
 		<Div Class="Grid">
-			<Custom-round-button Icon="add_box" Style="--Scale: 28px"></Custom-round-button>
-			<Custom-round-button Icon="add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main); --Hover-Color: Var(--Main);"></Custom-round-button>
+			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px"></Custom-round-button>
+			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main);"></Custom-round-button>
 		</Div>
 		<HR>
 		<H3 ID="FAB">
@@ -252,7 +239,7 @@
 		<Custom-checkbox Label="Парить" OnChange="FAB_Float(this.checked)"></Custom-checkbox>
 		<Div Class="Grid" ID="FAB_Content">
 			<Button Class="Floating Locked" OnClick="Ripple(event)">
-				<Custom-icon Icon="add_box"></Custom-icon>
+				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 			</Button>
 			<Div Class="Placeholder">
 				Он улетел, но обещал вернуться
@@ -265,7 +252,7 @@
 
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
 			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
 					Checkbox
 				</A>
 			</H3>
@@ -286,7 +273,7 @@
 
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
 			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
 					Textarea
 				</A>
 			</H3>
@@ -317,7 +304,7 @@
 				Обёртка
 			</A>
 		</H3>
-		<Div Class="InputContainer Roomy Titled Outlined">
+		<Label Class="InputContainer Titled Roomy Outlined">
 			<Span>Тип поля ввода:</Span>
 			<Select Is="custom-select" OnChange="Wrapper_Set(this.value)">
 				<Option>Text</Option>
@@ -329,45 +316,8 @@
 				<Option>Password</Option>
 				<Option>Tel</Option>
 			</Select>
-		</Div>
-		<Div Class="Grid" ID="Wrapper_Content">
-			<Div Class="InputContainer">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Roomy">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Roomy Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Main">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Main Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Main Roomy">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Main Roomy Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Outlined">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Outlined Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-			<Div Class="InputContainer Outlined Roomy Round">
-				<Input Type="Text" Placeholder="Введите текст...">
-			</Div>
-		</Div>
+		</Label>
+		<Div Class="Grid" ID="Wrapper_Content"></Div>
 
 		<HR>
 
@@ -376,91 +326,110 @@
 				Обёртка c описанием
 			</A>
 		</H3>
+		<Div AutoLayout Direction="Horizontal" Style="Gap: 5px" Wrap>
+			<Label Class="InputContainer Titled Roomy Outlined">
+				<Span>Тип поля ввода:</Span>
+				<Select Is="custom-select">
+					<Option>Text</Option>
+					<Option>Number</Option>
+					<Option>Date</Option>
+					<Option>Time</Option>
+					<Option>Datetime-local</Option>
+					<Option>Email</Option>
+					<Option>Password</Option>
+					<Option>Tel</Option>
+				</Select>
+			</Label>
+			<Label Class="InputContainer Titled Roomy Outlined">
+				<Span>Описание:</Span>
+				<Input Value="Сортировка по">
+			</Label>
+		</Div>
 		<Div Class="Grid">
-			<Div Class="InputContainer Titled">
+			<Label Class="InputContainer Titled">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Round">
+			</Label>
+			<Label Class="InputContainer Titled Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Roomy">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Roomy Round">
+			</Label>
+			<Label Class="InputContainer Titled Roomy Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Main">
+			</Label>
+			<Label Class="InputContainer Titled Main">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Main Round">
+			</Label>
+			<Label Class="InputContainer Titled Main Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Main Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Main Roomy">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Main Roomy Round">
+			</Label>
+			<Label Class="InputContainer Titled Main Roomy Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Outlined">
+			</Label>
+			<Label Class="InputContainer Titled Outlined">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Outlined Round">
+			</Label>
+			<Label Class="InputContainer Titled Outlined Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Outlined Roomy">
+			</Label>
+			<Label Class="InputContainer Titled Outlined Roomy">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
-			<Div Class="InputContainer Titled Outlined Roomy Round">
+			</Label>
+			<Label Class="InputContainer Titled Outlined Roomy Round">
 				<Span>Сортировка по:</Span>
 				<Select Is="custom-select">
 					<Option>Рейтингу</Option>
 					<Option>Цене</Option>
 				</Select>
-			</Div>
+			</Label>
 		</Div>
 
 		<HR>
@@ -468,6 +437,23 @@
 		<H3>Стилизованные</H3>
 		<Div Class="Grid">
 			<Input Type="Range" Class="Library">
+			<Input Type="Color" Class="Library" Value="#95AAA3">
+			<!-- <Input Type="File" Class="Library">
+			<Input Type="Radio" Class="Library"> -->
 		</Div>
+
+		<HR>
+
+		<H2>Другое</H2>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Code.scss" Title="Исходный код" Target="_blank">
+				Код
+			</A>
+		</H3>
+		<Code Class="Library Block">
+			&lt;Code Class="Library Block"&gt; <BR>
+			   <I>// Рекурсия</I> <BR>
+			&lt;/Code&gt;
+		</Code>
 	</Main>
 </Body>

@@ -54,3 +54,5 @@ function Wrapper_Set(Type)
 			<Input Type="${Type}" Value="${Value[Type] || ''}" Placeholder="${Placeholder[Type] || ''}">
 		</Div>`;
 }
+
+Wrapper_Set('Text');

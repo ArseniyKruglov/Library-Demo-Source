@@ -1,4 +1,4 @@
 function CodeToHTML(Code)
 {
-	return Code.replace(/\t/g, '   ').replace(/\n/g, '<BR>')
+	return Code.replace(/\n/g, '<BR>')
 }

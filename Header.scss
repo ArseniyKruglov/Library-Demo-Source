@@ -14,6 +14,6 @@ Header
 		Color: Var(--Gray-70);
 		Font-size: 22px;
 		Font-weight: 500;
-		Font-family: Var(--Font-Title);
+		Font-family: 'Google Sans', #{$Font-Fallback-SansSerif};
 	}
 }

@@ -128,7 +128,7 @@ Main
 		& > *
 		{
 			Height: 250px;
-			Border-radius: Var(--Border);
+			Border-radius: Var(--Border-radius);
 			Box-shadow: 0 1px 3px HSLA(0, 0%, 0%, 20%), 0 4px 12px HSLA(0, 0%, 0%, 2.5%);
 			Cursor: Pointer;
 		}
