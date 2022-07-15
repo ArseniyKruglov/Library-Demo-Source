@@ -7,11 +7,12 @@ class BorderRadius
 
 
 
-	Element = document.getElementById('BorderRadius_Code');
+	CodeElement = document.getElementById('BorderRadius_Code');
+	InputElement = document.getElementById('BorderRadius_Input');
 
 	Draw()
 	{
-		this.Element.innerHTML = CodeToHTML
+		this.CodeElement.innerHTML = CodeToHTML
 		(`:root
 		{
 		   --Border-radius: ${this.Value}px;
@@ -39,6 +40,7 @@ class BorderRadius
 	Reset()
 	{
 		this.Value = 2.5;
+		this.InputElement.value = 2.5;
 	}
 }
 

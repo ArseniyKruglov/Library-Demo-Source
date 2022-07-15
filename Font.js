@@ -60,7 +60,7 @@ class Font
 		'Lora': 'Serif',
 		'Roboto Mono': 'Monospace',
 		'Bellota': 'SansSerif',
-		'Playfair Display': 'SansSerif',
+		'Playfair Display': 'Serif',
 		'System-UI': 'SansSerif',
 		'JetBrains Mono': 'Monospace',
 		'Roboto': 'SansSerif'

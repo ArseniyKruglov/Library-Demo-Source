@@ -1,26 +1,27 @@
-<Body AutoLayout Direction="Vertical" Width="Fill" Height="Fill">
+<Body AutoLayout Direction="Vertical" Width="Fill">
 	<Header AutoLayout Direction="Horizontal" AlignY="Center">
-		<Custom-icon Icon="outlined/code"></Custom-icon>
-		<Div>Компоненты</Div>
+		<Custom-icon Icon="outlined/calendar_view_week"></Custom-icon>
+		<Div>Галерея</Div>
 	</Header>
 
 	<HR>
 
 	<Main AutoLayout Direction="Vertical">
 		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
-			<H1>Вот такие компоненты.</H1>
-			<Div>На этой странице вы можете ознакомиться с возможностями библиотеки и узнать её основые принципы.</Div>
+			<H1>Вот такая библиотека.</H1>
+			<Div>Эта страница — демонстрация её красоты и лёгкости. Вдохновлено Google, IKEA и Microsoft.</Div>
 		</Div>
-		<A Class="Text Main Roomy Fill" Href="https://github.com/ArseniyKruglov/Components" OnClick="Ripple(event)" Target="_blank">Исходный код</A>
+		<Div AutoLayout Direction="Horizontal" Style="Gap: 15px" Wrap>
+			<A Class="Text Main Roomy Fill" Href="https://github.com/ArseniyKruglov/Library" Target="_blank">
+				Код библиотеки
+			</A>
+			<A Class="Text Main Roomy Outlined" Href="https://github.com/ArseniyKruglov/Library-Demo-Source" Target="_blank">
+				Код страницы
+			</A>
+		</Div>
 
 		<HR>
 
-		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
-			<H2>Совместимость</H2>
-			<Div>Библиотека полностью совместима с современными версиями Chromium, Firefox и Safari. И, судя по данным Can I Use, будет работать у более чем 95% пользователей. Основные ограничители — CSS-переменные и веб-компоненты.</Div>
-		</Div>
-
-		<HR>
 
 		<H2>
 			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Theme/Colors.scss" Title="Исходный код" Target="_blank">
@@ -110,12 +111,12 @@
 		</Div>
 		<Code Class="Library Block" ID="BorderRadius_Code"></Code>
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-			<Input Type="Range" Class="Library" ID="BorderRadius" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius.Value = parseFloat(this.value)">
+			<Input Type="Range" Class="Library" ID="BorderRadius_Input" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius.Value = parseFloat(this.value)">
 			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius.Reset()">Сбросить</Button>
 		</Div>
 		<HR>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
 			<H2>
 				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Icon" Title="Исходный код" Target="_blank">
 					Иконки
@@ -126,23 +127,9 @@
 				<Span>Веб-компонент</Span>
 			</Div>
 		</Div>
-		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
-			<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
-			<Code Class="Library Block">
-				&lt;Custom-icon <BR>
-				   Icon="outlined/place" <BR>
-				   Style="--Color: Var(--Main); --Scale: 50px;"&gt; <BR>
-				&lt;/Custom-icon&gt;
-			</Code>
-		</Div>
-		<Div AutoLayout Direction="Horizontal" Style="Gap: 25px">
+		<Div Class="Grid">
 			<Custom-icon Icon="outlined/map" Style="--Scale: 50px;"></Custom-icon>
-			<Code Class="Library Block">
-				&lt;Custom-icon <BR>
-				   Icon="outlined/map" <BR>
-				   Style="--Scale: 50px;"&gt; <BR>
-				&lt;/Custom-icon&gt;
-			</Code>
+			<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
 		</Div>
 
 		<HR>
@@ -152,17 +139,11 @@
 				Рябь
 			</A>
 		</H2>
-		<Div ID="Ripple">
+		<Div ID="Ripple_Content">
 			<Div OnClick="Ripple(event)"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Red"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Green"></Div>
 		</Div>
-		<Code Class="Library Block">
-			&lt;Div <BR>
-			   OnClick="Ripple(event)" <BR>
-			   Style="--Ripple-Color: Red"&gt; <BR>
-			&lt;/Div&gt;
-		</Code>
 
 		<HR>
 
@@ -215,7 +196,7 @@
 			</Button>
 		</Div>
 		<HR>
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
 			<H3>
 				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
 					С иконкой
@@ -230,8 +211,10 @@
 			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px"></Custom-round-button>
 			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main);"></Custom-round-button>
 		</Div>
+
 		<HR>
-		<H3 ID="FAB">
+
+		<H3>
 			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Button/Floating.scss" Title="Исходный код" Target="_blank">
 				Парящая
 			</A>
@@ -242,7 +225,9 @@
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
 			</Button>
 			<Div Class="Placeholder">
-				Он улетел, но обещал вернуться
+				.-. <BR>
+				(&nbsp;&nbsp;&nbsp;) <BR>
+				'-'
 			</Div>
 		</Div>
 
@@ -250,7 +235,7 @@
 
 		<H2>Ввод</H2>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
 			<H3>
 				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
 					Checkbox
@@ -265,13 +250,13 @@
 		<Div Class="Grid">
 			<Custom-checkbox></Custom-checkbox>
 			<Custom-checkbox Class="Main"></Custom-checkbox>
-			<Custom-checkbox Label="Показывать цены"></Custom-checkbox>
-			<Custom-checkbox Label="Показывать цены" Class="Main"></Custom-checkbox>
+			<Custom-checkbox Label="Описание"></Custom-checkbox>
+			<!-- <Custom-checkbox Label="Описание" Class="Main"></Custom-checkbox> -->
 		</Div>
 
 		<HR>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px">
+		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
 			<H3>
 				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
 					Textarea
@@ -299,7 +284,7 @@
 
 		<HR>
 
-		<H3 ID="Wrapper">
+		<H3>
 			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Input.scss" Title="Исходный код" Target="_blank">
 				Обёртка
 			</A>
@@ -341,8 +326,10 @@
 				</Select>
 			</Label>
 			<Label Class="InputContainer Titled Roomy Outlined">
-				<Span>Описание:</Span>
-				<Input Value="Сортировка по">
+				<Div>Описание:</Div>
+				<Span Role="Textbox" ContentEditable>Сортировка по</Span>
+
+				<!-- <Input Value="Сортировка по"> -->
 			</Label>
 		</Div>
 		<Div Class="Grid">
@@ -452,8 +439,18 @@
 		</H3>
 		<Code Class="Library Block">
 			&lt;Code Class="Library Block"&gt; <BR>
-			   <I>// Рекурсия</I> <BR>
+			   &lt;!-- --&gt; <BR>
 			&lt;/Code&gt;
 		</Code>
+		<Div>
+			Или <Code Class="Library Inline">код</Code> в строке.
+		</Div>
+
+		<HR>
+
+		<Div AutoLayout Direction="Vertical" Style="Gap: 10px">
+			<H2>Совместимость</H2>
+			<Div>Библиотека полностью совместима с современными версиями Chromium, Firefox и Safari. И, судя по данным Can I Use, будет работать у более чем 95% пользователей. Основные ограничители — CSS-переменные и веб-компоненты.</Div>
+		</Div>
 	</Main>
 </Body>

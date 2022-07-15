@@ -119,7 +119,7 @@ Main
 		Width: Min(100%, 500px);
 	}
 
-	#Ripple
+	#Ripple_Content
 	{
 		Display: Grid;
 		Gap: 10px;
@@ -134,8 +134,9 @@ Main
 		}
 	}
 
-	Code .InputContainer
+	#Processing_Content
 	{
-		Background-color: #FFFFFF;
+		Width: 250px;
+		Height: 250px;
 	}
 }
