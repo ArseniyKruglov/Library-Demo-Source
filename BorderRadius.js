@@ -13,10 +13,12 @@ class BorderRadius
 	Draw()
 	{
 		this.CodeElement.innerHTML = CodeToHTML
-		(`:root
-		{
-		   --Border-radius: ${this.Value}px;
-		}`);
+		(`
+			:root
+			{
+			   --Border-radius: ${this.Value}px;
+			}
+		`);
 	}
 
 
@@ -45,4 +47,4 @@ class BorderRadius
 }
 
 BorderRadius = new BorderRadius();
-BorderRadius.Draw();
+BorderRadius.Reset();

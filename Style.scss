@@ -60,12 +60,12 @@ Main
 
 		@media ($WideScreen)
 		{
-			Font-size: 22px;
+			Font-size: 24px;
 		}
 
 		@media ($NarrowScreen)
 		{
-			Font-size: 20px;
+			Font-size: 22px;
 		}
 	}
 
@@ -92,27 +92,27 @@ Main
 		}
 	}
 
-	.ItsWebComponent
-	{
-		Display: Flex;
-		Gap: 7.5px;
-		Padding: 7.5px 10px 6.5px 8.5px;
-		Border: 1px Solid Var(--Gray-20);
-		Border-radius: 50px;
+	// .ItsWebComponent
+	// {
+	// 	Display: Flex;
+	// 	Gap: 7.5px;
+	// 	Padding: 7.5px 10px 6.5px 8.5px;
+	// 	Border: 1px Solid Var(--Gray-20);
+	// 	Border-radius: 50px;
 
-		& > svg
-		{
-			Height: 16px;
-		}
+	// 	& > svg
+	// 	{
+	// 		Height: 16px;
+	// 	}
 
-		& > Span
-		{
-			Font-family: Var(--Font-UI);
-			Font-size: 14px;
-			Font-weight: 500;
-			Color: Var(--Gray-85);
-		}
-	}
+	// 	& > Span
+	// 	{
+	// 		Font-family: Var(--Font-UI);
+	// 		Font-size: 14px;
+	// 		Font-weight: 500;
+	// 		Color: Var(--Gray-85);
+	// 	}
+	// }
 
 	Input[Type="Range"]
 	{
@@ -132,11 +132,5 @@ Main
 			Box-shadow: 0 1px 3px HSLA(0, 0%, 0%, 20%), 0 4px 12px HSLA(0, 0%, 0%, 2.5%);
 			Cursor: Pointer;
 		}
-	}
-
-	#Processing_Content
-	{
-		Width: 250px;
-		Height: 250px;
 	}
 }

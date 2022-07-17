@@ -28,33 +28,44 @@
 				Цвета
 			</A>
 		</H2>
-		<Div AutoLayout Direction="Vertical" Style="Gap: 15px">
-			<Div>Основной цвет задается как CSS-переменные: Hue, Saturation и Lightness. На их основе создается цветовая палитра сайта.</Div>
-			<Code Class="Library Block" ID="Theme_Code_Main">
-				:root <BR>
-				{ <BR>
-				   --Hue: 0; <BR>
-				   --Saturation: 70%; <BR>
-				   --Lightness: 50%; <BR>
-				}
-			</Code>
+
+		<Div AutoLayout Direction="Vertical" Style="Gap: 25px">
+			<Div AutoLayout Direction="Vertical" Style="Gap: 5px">
+				<H3>Основной цвет</H3>
+				<Div>Задается как CSS-переменные: Hue, Saturation и Lightness. На их основе создается цветовая палитра сайта.</Div>
+			</Div>
+			<Code Class="Library Block" ID="Theme_Code_Main"></Code>
 			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Class="Library" Value="#D92626" OnInput="Theme_Set_Main(Hex_To_HSL(this.value))" ID="Theme_Main">
+				<Input Type="Color" Class="Library" OnInput="Theme_Set_Main(Hex_To_HSL(this.value))" ID="Theme_Main">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Main()">Сбросить</Button>
 			</Div>
 		</Div>
-		<Div AutoLayout Direction="Vertical" Style="Gap: 15px">
-			<Div>Серый — не серый — к нему подмешивается немного другого цвета.</Div>
-			<Code Class="Library Block" ID="Theme_Code_Gray">
-				:root <BR>
-				{ <BR>
-				   --Gray-Hue: 210; <BR>
-				   --Gray-Saturation: 10%; <BR>
-				}
-			</Code>
+
+		<HR>
+
+		<Div AutoLayout Direction="Vertical" Style="Gap: 25px">
+			<Div AutoLayout Direction="Vertical" Style="Gap: 5px">
+				<H3>Серый</H3>
+				<Div>К нему подмешивается немного другого цвета.</Div>
+			</Div>
+			<Code Class="Library Block" ID="Theme_Code_Gray"></Code>
 			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-				<Input Type="Color" Class="Library" Value="#171A1C" OnInput="Theme_Set_Gray(Hex_To_HSL(this.value))" ID="Theme_Gray">
+				<Input Type="Color" Class="Library" OnInput="Theme_Set_Gray(Hex_To_HSL(this.value))" ID="Theme_Gray">
 				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Gray()">Сбросить</Button>
+			</Div>
+		</Div>
+
+		<HR>
+
+		<Div AutoLayout Direction="Vertical" Style="Gap: 25px">
+			<Div AutoLayout Direction="Vertical" Style="Gap: 5px">
+				<H3>Темнота</H3>
+				<Div>Темноту тёмной темы можно регулировать.</Div>
+			</Div>
+			<Code Class="Library Block" ID="Theme_Code_Darkness"></Code>
+			<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
+				<Input Type="Range" Class="Library" Min="0" Max="15" Step="1" OnInput="Theme_Set_Darkness(parseInt(this.value))" ID="Theme_Darkness">
+				<Button Class="Text Hover" OnClick="Ripple(event); Theme_Reset_Darkness()">Сбросить</Button>
 			</Div>
 		</Div>
 
@@ -111,36 +122,69 @@
 		</Div>
 		<Code Class="Library Block" ID="BorderRadius_Code"></Code>
 		<Div AutoLayout Direction="Horizontal" AlignY="Center" Wrap Style="Gap: 10px">
-			<Input Type="Range" Class="Library" ID="BorderRadius_Input" Min="0" Max="15" Value="2.5" Step="0.5" OnInput="BorderRadius.Value = parseFloat(this.value)">
+			<Input Type="Range" Class="Library" ID="BorderRadius_Input" Min="0" Max="15" Step="0.5" OnInput="BorderRadius.Value = parseFloat(this.value)">
 			<Button Class="Text Hover" OnClick="Ripple(event); BorderRadius.Reset()">Сбросить</Button>
 		</Div>
 		<HR>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
+		<Div AutoLayout Direction="Horizontal" Style="Gap: 20px 10px" Packing="Space between" AlignY="Center" Wrap>
 			<H2>
 				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Icon" Title="Исходный код" Target="_blank">
 					Иконки
 				</A>
 			</H2>
-			<Div Class="ItsWebComponent">
-				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
-				<Span>Веб-компонент</Span>
+
+			<Div Class="ButtonRadioGroup">
+				<Label>
+					<Input Type="Radio" Name="Icon_Radio" OnChange="Icon_View(this.checked)" Checked>
+					<Span>Галерея</Span>
+				</Label>
+				<Label>
+					<Input Type="Radio" Name="Icon_Radio" OnChange="Icon_View(!this.checked)">
+					<Span>Попробовать</Span>
+				</Label>
 			</Div>
 		</Div>
-		<Div Class="Grid">
-			<Custom-icon Icon="outlined/map" Style="--Scale: 50px;"></Custom-icon>
-			<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
+		<Div ID="Icon_Content">
+			<Div Class="Grid">
+				<Custom-icon Icon="outlined/map" Style="--Scale: 50px;"></Custom-icon>
+				<Custom-icon Icon="filled/map" Style="--Scale: 50px;"></Custom-icon>
+				<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
+				<Custom-icon Icon="filled/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
+			</Div>
+			<Div AutoLayout Direction="Vertical" Style="Gap: 25px">
+				<Label Class="InputContainer">
+					<Input Type="Number" Value="50" OnInput="Icon_Set_Scale(parseInt(this.value))">
+				</Label>
+				<Input Type="Color" Class="Library">
+
+				<Custom-icon Icon="outlined/map" ID="Icon_Try_Element"></Custom-icon>
+				<Code Class="Library Block" ID="Icon_Try_Code"></Code>
+			</Div>
 		</Div>
 
 		<HR>
 
-		<H2>
-			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
-				Рябь
-			</A>
-		</H2>
+		<Div AutoLayout Direction="Horizontal" Style="Gap: 20px 10px" Packing="Space between" AlignY="Center" Wrap>
+			<H2>
+				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
+					Рябь
+				</A>
+			</H2>
+
+			<Div Class="ButtonRadioGroup">
+				<Label>
+					<Input Type="Radio" Name="Ripple_Radio" OnChange="Ripple_View(this.checked)" Checked>
+					<Span>Галерея</Span>
+				</Label>
+				<Label>
+					<Input Type="Radio" Name="Ripple_Radio" OnChange="Ripple_View(!this.checked)">
+					<Span>Попробовать</Span>
+				</Label>
+			</Div>
+		</Div>
 		<Div ID="Ripple_Content">
-			<Div OnClick="Ripple(event)"></Div>
+			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Var(--Text)"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Red"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Green"></Div>
 		</Div>
@@ -196,17 +240,11 @@
 			</Button>
 		</Div>
 		<HR>
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
-			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
-					С иконкой
-				</A>
-			</H3>
-			<Div Class="ItsWebComponent">
-				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
-				<Span>Веб-компонент</Span>
-			</Div>
-		</Div>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/RoundButton" Title="Исходный код" Target="_blank">
+				С иконкой
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px"></Custom-round-button>
 			<Custom-round-button Icon="outlined/add_box" Style="--Scale: 28px; --Icon-Color: Var(--Main);"></Custom-round-button>
@@ -235,18 +273,11 @@
 
 		<H2>Ввод</H2>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
-			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
-					Checkbox
-				</A>
-			</H3>
-
-			<Div Class="ItsWebComponent">
-				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
-				<Span>Веб-компонент</Span>
-			</Div>
-		</Div>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Checkbox" Title="Исходный код" Target="_blank">
+				Checkbox
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Custom-checkbox></Custom-checkbox>
 			<Custom-checkbox Class="Main"></Custom-checkbox>
@@ -256,17 +287,11 @@
 
 		<HR>
 
-		<Div AutoLayout Direction="Horizontal" AlignY="Center" Style="Gap: 12.5px" Wrap>
-			<H3>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
-					Textarea
-				</A>
-			</H3>
-			<Div Class="ItsWebComponent">
-				<SVG viewBox="0 0 161 132"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="#2A3B8F" offset="0%"/><stop stop-color="#29ABE2" offset="100%"/></linearGradient><linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c"><stop stop-color="#B4D44E" offset="0%"/><stop stop-color="#E7F716" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/><path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/><path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/><path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/><path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/><path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/></g></SVG>
-				<Span>Веб-компонент</Span>
-			</Div>
-		</Div>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Components/WebComponents/Textarea" Title="Исходный код" Target="_blank">
+				Textarea
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Custom-textarea Placeholder="Введите текст..."></Custom-textarea>
 			<Custom-textarea Class="Roomy" Placeholder="Введите текст..."></Custom-textarea>
@@ -421,12 +446,25 @@
 
 		<HR>
 
-		<H3>Стилизованные</H3>
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Input/Range.scss" Title="Исходный код" Target="_blank">
+				Range
+			</A>
+		</H3>
 		<Div Class="Grid">
 			<Input Type="Range" Class="Library">
+			<Input Type="Range" Class="Library Main">
+		</Div>
+
+		<HR>
+
+		<H3>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Components/Input/Color.scss" Title="Исходный код" Target="_blank">
+				Color
+			</A>
+		</H3>
+		<Div Class="Grid">
 			<Input Type="Color" Class="Library" Value="#95AAA3">
-			<!-- <Input Type="File" Class="Library">
-			<Input Type="Radio" Class="Library"> -->
 		</Div>
 
 		<HR>

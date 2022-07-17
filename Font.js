@@ -17,13 +17,15 @@ class Font
 	Draw()
 	{
 		this.Element.innerHTML = CodeToHTML
-		(`:root
-		{
-		   --Font-Title: ${this.GetCode(this.Title)};
-		   --Font-Text: ${this.GetCode(this.Text)};
-		   --Font-UI: ${this.GetCode(this.UI)};
-		   --Font-Monospace: ${this.GetCode(this.Monospace)};
-		}`);
+		(`
+			:root
+			{
+			   --Font-Title: ${this.GetCode(this.Title)};
+			   --Font-Text: ${this.GetCode(this.Text)};
+			   --Font-UI: ${this.GetCode(this.UI)};
+			   --Font-Monospace: ${this.GetCode(this.Monospace)};
+			}
+		`);
 	}
 
 	GetCode(Font)
