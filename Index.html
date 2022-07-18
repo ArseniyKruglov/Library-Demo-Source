@@ -152,13 +152,26 @@
 				<Custom-icon Icon="outlined/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
 				<Custom-icon Icon="filled/place" Style="--Color: Var(--Main); --Scale: 50px;"></Custom-icon>
 			</Div>
-			<Div AutoLayout Direction="Vertical" Style="Gap: 25px">
-				<Label Class="InputContainer">
-					<Input Type="Number" Value="50" OnInput="Icon_Set_Scale(parseInt(this.value))">
-				</Label>
-				<Input Type="Color" Class="Library">
+			<Div Class="Demo">
+				<Div AutoLayout Direction="Vertical" Style="Gap: 5px">
+					<Label Class="InputContainer Titled Roomy">
+						<Div>Размер:</Div>
+						<Input Type="Range" Class="Library" Min="25" Max="250" Value="150" OnInput="Icon.Scale = parseInt(this.value)">
+					</Label>
+					<Label Class="InputContainer Titled Roomy" Style="Gap: 15px">
+						<Div>Цвет:</Div>
+						<Input Type="Color" Class="Library" Value="#95AAA3" OnInput="Icon.Color = this.value">
+					</Label>
+				</Div>
 
-				<Custom-icon Icon="outlined/map" ID="Icon_Try_Element"></Custom-icon>
+				<HR>
+
+				<Div AutoLayout Direction="Horizontal" Height="Fill" Width="Fill" AlignX="Center" AlignY="Center">
+					<Custom-icon Icon="outlined/map" ID="Icon_Try_Example" Style="--Color: #95AAA3; --Scale: 150px;"></Custom-icon>
+				</Div>
+
+				<HR>
+
 				<Code Class="Library Block" ID="Icon_Try_Code"></Code>
 			</Div>
 		</Div>

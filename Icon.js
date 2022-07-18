@@ -5,31 +5,61 @@ function Icon_View(View)
 	Element.children[1].hidden = View;
 }
 
-function Icon_Set_Scale(Scale)
-{
-	const Element = document.getElementById('Icon_Try_Element');
-	Element.style.setProperty('--Scale', Scale + 'px');
-}
-
-function Icon_Set_Color(HSL)
-{
-	const Element = document.getElementById('Icon_Try_Element');
-	Element.style.setProperty('--Color', `HSL(${HSL[0]}, ${HSL[1]}%, ${HSL[2]}%)`);
-}
-
-function Icon_Try_Code()
-{
-	const Element = document.getElementById('Icon_Try_Code');
-	Element.innerHTML = CodeToHTML
-	(`
-		<Custom-icon
-		   Icon="outlined/map"
-		   Style="--Scale: 50px">
-		</Custom-icon>
-	`);
-}
-
 Icon_View(1);
-Icon_Try_Code();
-Icon_Set_Scale(50);
-Icon_Set_Color([0, 70, 50]);
+
+
+
+class Icon
+{
+	_Scale = 150;
+	_Color = '#95AAA3';
+
+
+
+	Element_Code = document.getElementById('Icon_Try_Code');
+	Element_Example = document.getElementById('Icon_Try_Example');
+
+	Apply(Property, Value)
+	{
+		this.Element_Example.style.setProperty(`--${Property}`, Value);
+	}
+
+	Draw()
+	{
+		this.Element_Code.innerHTML = CodeToHTML
+		(`
+			&lt;Custom-icon
+			   Icon="outlined/map"
+			   Style="--Scale: ${this.Scale}px; --Color: ${this.Color.toUpperCase()}"&gt;
+			&lt;/Custom-icon&gt;
+		`);
+	}
+
+
+
+	set Color(Value)
+	{
+		this._Color = Value;
+		this.Apply('Color', Value);
+		this.Draw();
+	}
+	get Color()
+	{
+		return this._Color;
+	}
+
+	set Scale(Value)
+	{
+		this._Scale = Value;
+		this.Apply('Scale', Value + 'px');
+		this.Draw();
+	}
+	get Scale()
+	{
+		return this._Scale;
+	}
+}
+
+Icon = new Icon();
+Icon.Apply();
+Icon.Draw();

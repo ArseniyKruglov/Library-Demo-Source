@@ -1,0 +1,26 @@
+.Demo
+{
+	display: flex;
+	Gap: 25px;
+
+	@media (min-width: 1250px)
+	{
+		flex-direction: row;
+		justify-content: space-between;
+
+		& > HR
+		{
+			@include HR_Vertical;
+		}
+	}
+
+	@media (max-width: 1250px)
+	{
+		flex-direction: column;
+
+		& > HR
+		{
+			@include HR_Horizontal;
+		}
+	}
+}
