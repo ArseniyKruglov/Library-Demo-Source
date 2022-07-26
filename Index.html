@@ -178,24 +178,11 @@
 
 		<HR>
 
-		<Div AutoLayout Direction="Horizontal" Style="Gap: 20px 10px" Packing="Space between" AlignY="Center" Wrap>
-			<H2>
-				<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
-					Рябь
-				</A>
-			</H2>
-
-			<Div Class="ButtonRadioGroup">
-				<Label>
-					<Input Type="Radio" Name="Ripple_Radio" OnChange="Ripple_View(this.checked)" Checked>
-					<Span>Галерея</Span>
-				</Label>
-				<Label>
-					<Input Type="Radio" Name="Ripple_Radio" OnChange="Ripple_View(!this.checked)">
-					<Span>Попробовать</Span>
-				</Label>
-			</Div>
-		</Div>
+		<H2>
+			<A Href="https://github.com/ArseniyKruglov/Library/tree/main/Library/UI/Effects/Ripple" Title="Исходный код" Target="_blank">
+				Рябь
+			</A>
+		</H2>
 		<Div ID="Ripple_Content">
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Var(--Text)"></Div>
 			<Div OnClick="Ripple(event)" Style="--Ripple-Color: Red"></Div>
@@ -496,6 +483,17 @@
 		<Div>
 			Или <Code Class="Library Inline">код</Code> в строке.
 		</Div>
+
+		<HR>
+
+		<H2>
+			<A Href="https://github.com/ArseniyKruglov/Library/blob/main/Library/UI/Dialog" Title="Исходный код" Target="_blank">
+				Dialog
+			</A>
+		</H2>
+		<Button Class="Text Fill Main" OnClick="Demo_Dialog_FullScreen_Open()">
+			Открыть
+		</Button>
 
 		<HR>
 

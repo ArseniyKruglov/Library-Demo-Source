@@ -14,70 +14,6 @@ Main
 
 
 
-	H1
-	{
-		@include Reset_H;
-		Font-weight: 500;
-		Font-family: Var(--Font-Title);
-		Color: Var(--Main);
-
-		@media ($WideScreen)
-		{
-			Font-size: 48px;
-		}
-
-		@media ($NarrowScreen)
-		{
-			Font-size: 36px;
-		}
-	}
-
-	H2,
-	H2 > A
-	{
-		@include Reset_H;
-		Font-weight: 500;
-		Font-family: Var(--Font-Title);
-
-		@media ($WideScreen)
-		{
-			Font-size: 32px;
-		}
-
-		@media ($NarrowScreen)
-		{
-			Font-size: 26px;
-		}
-	}
-
-	H3,
-	H3 > A
-	{
-		@include Reset_H;
-		Font-weight: 500;
-		Font-family: Var(--Font-Title);
-		// Color: Var(--Gray-80);
-
-		@media ($WideScreen)
-		{
-			Font-size: 24px;
-		}
-
-		@media ($NarrowScreen)
-		{
-			Font-size: 22px;
-		}
-	}
-
-	H2 > A,
-	H3 > A
-	{
-		@include Reset_A;
-		Border-bottom: 1.75px Solid Var(--Main-UI);
-	}
-
-
-
 	.Grid
 	{
 		Display: Grid;
@@ -91,28 +27,6 @@ Main
 			Width: 100%;
 		}
 	}
-
-	// .ItsWebComponent
-	// {
-	// 	Display: Flex;
-	// 	Gap: 7.5px;
-	// 	Padding: 7.5px 10px 6.5px 8.5px;
-	// 	Border: 1px Solid Var(--Gray-20);
-	// 	Border-radius: 50px;
-
-	// 	& > svg
-	// 	{
-	// 		Height: 16px;
-	// 	}
-
-	// 	& > Span
-	// 	{
-	// 		Font-family: Var(--Font-UI);
-	// 		Font-size: 14px;
-	// 		Font-weight: 500;
-	// 		Color: Var(--Gray-85);
-	// 	}
-	// }
 
 	Input[Type="Range"]
 	{
@@ -133,4 +47,68 @@ Main
 			Cursor: Pointer;
 		}
 	}
+}
+
+
+
+H1
+{
+	@include Reset_H;
+	Font-weight: 500;
+	Font-family: Var(--Font-Title);
+	Color: Var(--Main);
+
+	@media ($WideScreen)
+	{
+		Font-size: 48px;
+	}
+
+	@media ($NarrowScreen)
+	{
+		Font-size: 36px;
+	}
+}
+
+H2,
+H2 > A
+{
+	@include Reset_H;
+	Font-weight: 500;
+	Font-family: Var(--Font-Title);
+
+	@media ($WideScreen)
+	{
+		Font-size: 32px;
+	}
+
+	@media ($NarrowScreen)
+	{
+		Font-size: 26px;
+	}
+}
+
+H3,
+H3 > A
+{
+	@include Reset_H;
+	Font-weight: 500;
+	Font-family: Var(--Font-Title);
+	// Color: Var(--Gray-80);
+
+	@media ($WideScreen)
+	{
+		Font-size: 24px;
+	}
+
+	@media ($NarrowScreen)
+	{
+		Font-size: 22px;
+	}
+}
+
+H2 > A,
+H3 > A
+{
+	@include Reset_A;
+	Border-bottom: 1.75px Solid Var(--Main-UI);
 }

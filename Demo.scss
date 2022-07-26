@@ -1,12 +1,12 @@
 .Demo
 {
-	display: flex;
+	Display: Flex;
 	Gap: 25px;
 
 	@media (min-width: 1250px)
 	{
-		flex-direction: row;
-		justify-content: space-between;
+		Flex-direction: Row;
+		Justify-content: Space-between;
 
 		& > HR
 		{
@@ -16,7 +16,7 @@
 
 	@media (max-width: 1250px)
 	{
-		flex-direction: column;
+		Flex-direction: Column;
 
 		& > HR
 		{

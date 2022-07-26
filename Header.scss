@@ -5,8 +5,8 @@ Header
 
 	& > Custom-icon
 	{
-		--Scale: 30px;
 		--Color: Var(--Main);
+		--Scale: 30px;
 	}
 
 	& > Div
@@ -14,6 +14,6 @@ Header
 		Color: Var(--Gray-70);
 		Font-size: 22px;
 		Font-weight: 500;
-		Font-family: 'Google Sans', #{$Font-Fallback-SansSerif};
+		Font-family: Var(--Font-Title);
 	}
 }
