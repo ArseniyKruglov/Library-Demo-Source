@@ -153,6 +153,25 @@
 			<Div Class="Demo">
 				<Div AutoLayout Direction="Vertical" Style="Gap: 5px">
 					<Label Class="InputContainer Titled Roomy">
+						<Div>Иконка:</Div>
+						<Select OnChange="Icon.Name = this.value">
+							<Option>Map</Option>
+							<Option>Settings</Option>
+							<Option>Shopping cart</Option>
+							<Option>Lock</Option>
+						</Select>
+					</Label>
+					<Label Class="InputContainer Titled Roomy">
+						<Div>Стиль:</Div>
+						<Select OnChange="Icon.Style = this.value">
+							<Option>Outlined</Option>
+							<Option>Filled</Option>
+							<Option>Rounded</Option>
+							<Option>Sharp</Option>
+							<Option>Two tone</Option>
+						</Select>
+					</Label>
+					<Label Class="InputContainer Titled Roomy">
 						<Div>Размер:</Div>
 						<Input Type="Range" Class="Library" Min="25" Max="250" Value="150" OnInput="Icon.Scale = parseInt(this.value)">
 					</Label>
@@ -214,15 +233,15 @@
 
 			<Button Class="Text Outlined Icon" OnClick="Ripple(event)">
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
-				<Span>.Text.Main.Outlined.Icon</Span>
+				<Div>.Text.Main.Outlined.Icon</Div>
 			</Button>
 			<Button Class="Text Main Outlined Icon" OnClick="Ripple(event)">
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
-				<Span>.Text.Main.Outlined.Icon</Span>
+				<Div>.Text.Main.Outlined.Icon</Div>
 			</Button>
 			<Button Class="Text Gray Outlined Icon" OnClick="Ripple(event)">
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
-				<Span>.Text.Main.Outlined.Icon</Span>
+				<Div>.Text.Main.Outlined.Icon</Div>
 			</Button>
 
 			<Button Class="Text Main Fill" OnClick="Ripple(event)">.Text.Main.Fill</Button>
@@ -230,11 +249,11 @@
 
 			<Button Class="Text Main Fill Icon" OnClick="Ripple(event)">
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
-				<Span>.Text.Main.Fill.Icon</Span>
+				<Div>.Text.Main.Fill.Icon</Div>
 			</Button>
 			<Button Class="Text Gray Fill Icon" OnClick="Ripple(event)">
 				<Custom-icon Icon="outlined/add_box"></Custom-icon>
-				<Span>.Text.Gray.Fill.Icon</Span>
+				<Div>.Text.Gray.Fill.Icon</Div>
 			</Button>
 		</Div>
 		<HR>
